@@ -2,10 +2,12 @@
 title: "Learning Parameters of Dynamical Systems"
 ---
 
-# Basic Examples
+# Python Examples
 
 ### 1. [Intro to SIR models and Euler's Method](example_SIR.ipynb)
 
 ### 2. [Intro to MCMC and Inference for State Space Models](MCMC.ipynb)
 
+# R Examples
 
+### 1. [R markdown example file](example_R.Rmd)

@@ -2,5 +2,9 @@
 title: "Website Test"
 ---
 
+::: {style="float: left; margin: 5px;"}
+![](imgs/rosenbrock.png)
+:::
+
 This is a test site to test the viability of using quarto.
 
