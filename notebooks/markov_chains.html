@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Learning Parameters of Dynamical Systems – Education Test Site</title>
+<title>markov_chains – Education Test Site</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,6 +106,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -101,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../notebooks/index.html" aria-current="page"> 
+    <a class="nav-link" href="../notebooks/index.html"> 
 <span class="menu-text">Demo Notebooks</span></a>
   </li>  
 </ul>
@@ -127,56 +191,174 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python-examples" id="toc-python-examples" class="nav-link active" data-scroll-target="#python-examples">Python Examples</a>
-  <ul class="collapse">
-  <li><a href="#intro-to-sir-models-and-eulers-method" id="toc-intro-to-sir-models-and-eulers-method" class="nav-link" data-scroll-target="#intro-to-sir-models-and-eulers-method">1. Intro to SIR models and Euler’s Method</a></li>
-  <li><a href="#intro-to-mcmc-and-inference-for-state-space-models" id="toc-intro-to-mcmc-and-inference-for-state-space-models" class="nav-link" data-scroll-target="#intro-to-mcmc-and-inference-for-state-space-models">2. Intro to MCMC and Inference for State Space Models</a></li>
-  </ul></li>
-  <li><a href="#r-examples" id="toc-r-examples" class="nav-link" data-scroll-target="#r-examples">R Examples</a>
-  <ul class="collapse">
-  <li><a href="#r-markdown-example-file" id="toc-r-markdown-example-file" class="nav-link" data-scroll-target="#r-markdown-example-file">1. R markdown example file</a></li>
-  </ul></li>
+  <li><a href="#stochastic-processes" id="toc-stochastic-processes" class="nav-link active" data-scroll-target="#stochastic-processes">Stochastic Processes</a></li>
+  <li><a href="#markov-chains" id="toc-markov-chains" class="nav-link" data-scroll-target="#markov-chains">Markov Chains</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#aperiodicity" id="toc-aperiodicity" class="nav-link" data-scroll-target="#aperiodicity">Aperiodicity</a></li>
+  <li><a href="#irreducibility" id="toc-irreducibility" class="nav-link" data-scroll-target="#irreducibility">Irreducibility</a></li>
+  <li><a href="#stationary-distribution" id="toc-stationary-distribution" class="nav-link" data-scroll-target="#stationary-distribution">Stationary Distribution</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Learning Parameters of Dynamical Systems</h1>
+
+
+
+<section id="stochastic-processes" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-processes">Stochastic Processes</h3>
+<p>A stochastic process is a collection of random variables <span class="math inline">\(\{X_{t}\}\)</span> where <span class="math inline">\(t \in T\)</span>. The random variables can be discrete or continuous and the index set <span class="math inline">\(T\)</span> can similiarly be discrete or continuous. To start we will consider stochastic processes with a discrete index set <span class="math inline">\(T = \{0,1,2,\dots\}\)</span> and 2 possible states.</p>
+<p>Therefore <span class="math inline">\(X_t\)</span> will take values in <span class="math inline">\(\mathcal{X} = \{a,b\}\)</span> and its index set <span class="math inline">\(T\)</span> will be <span class="math inline">\(\{0,1,\dots\}\)</span>.</p>
+</section>
+<section id="markov-chains" class="level3">
+<h3 class="anchored" data-anchor-id="markov-chains">Markov Chains</h3>
+<p>To simplify our stochastic process we will make a memorylessness assumption. That is, the probability <span class="math inline">\(X_{t+1} = x\)</span> can be determined from just the current state of the chain <span class="math inline">\(X_t\)</span>. Formally,</p>
+<p><span class="math display">\[
+P(X_{t+1} = x| X_{0} = x_0, X_{1} = x_1,\dots,X_{t} = x_t) = P(X_{t+1} = x|X_{t} = x_{t}), x_{t} \in \mathcal{X}.
+\]</span></p>
+<p>This is called a Markov chain and is one of the central objects in the study of stochastic processes.</p>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Let’s consider a motivating example of a Markov chain. Let <span class="math inline">\(X_{t}\)</span> be the weather in Flagstaff on a given day <span class="math inline">\(t\)</span>. The value of <span class="math inline">\(X_{t}\)</span> can be one of two states <span class="math inline">\(\{\text{sun},\text{rain}\}\)</span>. To finish off our definiton of <span class="math inline">\(X_t\)</span> we will need a transition matrix <span class="math inline">\(T\)</span>.</p>
+<p><span class="math display">\[
+T = \begin{bmatrix} 0.7 &amp; 0.3 \\ 0.3 &amp; 0.7 \end{bmatrix}
+\]</span></p>
+<p>The entries <span class="math inline">\(T_{ij}\)</span> represent the probability of moving from state <span class="math inline">\(i\)</span> to state <span class="math inline">\(j\)</span>. For example <span class="math inline">\(T_{00} = 0.7\)</span> says that given it is sunny today the probability it will be sunny tomorrow is <span class="math inline">\(0.7\)</span>.</p>
+<p>Our memoryless assumption ensures that we can write <span class="math inline">\(P(X_{t+1} = j | X_{t} = i) = T_{ij}\)</span> using the matrix <span class="math inline">\(T\)</span>.</p>
+<p>We will write the probability of <span class="math inline">\(X_t\)</span> as</p>
+<p><span class="math display">\[
+P(X_{t}) = [P(\text{sun}),P(\text{cloud})]^{T}.
+\]</span></p>
+<p>For example suppose on day <span class="math inline">\(0\)</span> it is cloudy. Then <span class="math inline">\(P(X_{0}) = [0.0,1.0]^{T}\)</span>. We know the weather on day 0 is cloudy so <span class="math inline">\(P(X_{0} = \text{cloud}) = 1.0\)</span>.</p>
+<p>A natural next question arises, what is <span class="math inline">\(P(X_{1}|X_{0} = x_0)\)</span>? Given our transition matrix <span class="math inline">\(T\)</span> we can compute</p>
+<p><span class="math display">\[
+P(X_{1}|X_{0} = x_0) = P(X_{0}) \cdot T
+\]</span></p>
+<p>by matrix multiplication.</p>
+<p>Lets code this up in python.</p>
+<div id="3e69bd87" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>PX_0 <span class="op">=</span> np.array([<span class="fl">0.0</span>,<span class="fl">1.0</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.array([[<span class="fl">0.7</span>,<span class="fl">0.3</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>              [<span class="fl">0.3</span>,<span class="fl">0.7</span>]])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>PX_1 <span class="op">=</span> PX_0.T <span class="op">@</span>T <span class="co">#The @ sign denotes matrix multiplication in numpy</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>PX_1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>array([0.3, 0.7])</code></pre>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="python-examples" class="level1">
-<h1>Python Examples</h1>
-<section id="intro-to-sir-models-and-eulers-method" class="level3">
-<h3 class="anchored" data-anchor-id="intro-to-sir-models-and-eulers-method">1. <a href="../notebooks/example_SIR.html">Intro to SIR models and Euler’s Method</a></h3>
+</div>
+<p>In fact, given any starting state <span class="math inline">\(P(X_0)\)</span> we can compute <span class="math inline">\(P(X_t)\)</span> as</p>
+<p><span class="math inline">\(P(X_t|X_0 = x_0) = P(X_{0}) \cdot T^t\)</span>.</p>
+<p>Alternatively, we can compute <span class="math inline">\(P(X_t|X_{0})\)</span> recursively by iterating through computations of the intermediate states.</p>
+<div id="6b8d3fac" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PX_0 <span class="op">=</span> np.array([<span class="fl">0.0</span>,<span class="fl">1.0</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.array([[<span class="fl">0.7</span>,<span class="fl">0.3</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>              [<span class="fl">0.3</span>,<span class="fl">0.7</span>]])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>PX_t <span class="op">=</span> PX_0.T <span class="op">@</span> np.linalg.matrix_power(T,t) </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>PX_t</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>array([0.468, 0.532])</code></pre>
+</div>
+</div>
+<div id="adae485c" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PX <span class="op">=</span> np.array([<span class="fl">0.0</span>,<span class="fl">1.0</span>])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.array([[<span class="fl">0.7</span>,<span class="fl">0.3</span>],</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>              [<span class="fl">0.3</span>,<span class="fl">0.7</span>]])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(t):</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    PX <span class="op">=</span> PX.T <span class="op">@</span> T</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>PX</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>array([0.468, 0.532])</code></pre>
+</div>
+</div>
+<p>The two techniques for computing <span class="math inline">\(P(X_{t}|X_{0} = x_0)\)</span> yield equivalent results.</p>
+<p>Next, lets consider what happens if we keep iterating.</p>
+<div id="bde0c3c4" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>PX_0 <span class="op">=</span> np.array([<span class="fl">0.0</span>,<span class="fl">1.0</span>])</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.array([[<span class="fl">0.7</span>,<span class="fl">0.3</span>],</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>              [<span class="fl">0.3</span>,<span class="fl">0.7</span>]])</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> [<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">100</span>]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> ts: </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    PX_t <span class="op">=</span> PX_0.T <span class="op">@</span> np.linalg.matrix_power(T,t) </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"PX_t|X_0 at time </span><span class="sc">{</span>t<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>PX_t<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>PX_t|X_0 at time 2 = [0.42 0.58]
+PX_t|X_0 at time 5 = [0.49488 0.50512]
+PX_t|X_0 at time 10 = [0.49994757 0.50005243]
+PX_t|X_0 at time 100 = [0.5 0.5]</code></pre>
+</div>
+</div>
+<p>It appears <span class="math inline">\(P(X_t|X_0 = x_0)\)</span> is approaching a constant vector <span class="math inline">\([0.5,0.5]^T\)</span>. Is this just because of our specific choice of <span class="math inline">\(x_0 = [0.0,1.0]^T\)</span>? What if we choose <span class="math inline">\(x_0 = [1.0,0.0]^T\)</span>?</p>
+<div id="4fb108ec" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>PX_0 <span class="op">=</span> np.array([<span class="fl">1.0</span>,<span class="fl">0.0</span>])</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.array([[<span class="fl">0.7</span>,<span class="fl">0.3</span>],</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              [<span class="fl">0.3</span>,<span class="fl">0.7</span>]])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> [<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">100</span>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> ts: </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    PX_t <span class="op">=</span> PX_0.T <span class="op">@</span> np.linalg.matrix_power(T,t) </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"PX_t|X_0 at time </span><span class="sc">{</span>t<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>PX_t<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>PX_t|X_0 at time 2 = [0.58 0.42]
+PX_t|X_0 at time 5 = [0.50512 0.49488]
+PX_t|X_0 at time 10 = [0.50005243 0.49994757]
+PX_t|X_0 at time 100 = [0.5 0.5]</code></pre>
+</div>
+</div>
+<p>It turns out, for any choice of <span class="math inline">\(x_0\)</span>, <span class="math inline">\(P(X_t|X_0 = x_0)\)</span> will approach a constant vector. Formally we can write</p>
+<p><span class="math inline">\(\lim\limits_{t\rightarrow \infty} P(X_t) = [0.5,0.5]^T\)</span>. This means that for any initial condition <span class="math inline">\(x_0\)</span> the distribution of <span class="math inline">\(X_t\)</span> will eventually approach a uniform distribution with a 50% chance of sun and a 50% chance of clouds.</p>
+<p>This is called the stationary distribution of the Markov chain. A Markov chain will approach a stationary distribution if two properties are satisfied, aperiodicity and irreducibility.</p>
 </section>
-<section id="intro-to-mcmc-and-inference-for-state-space-models" class="level3">
-<h3 class="anchored" data-anchor-id="intro-to-mcmc-and-inference-for-state-space-models">2. <a href="../notebooks/MCMC.html">Intro to MCMC and Inference for State Space Models</a></h3>
+<section id="aperiodicity" class="level3">
+<h3 class="anchored" data-anchor-id="aperiodicity">Aperiodicity</h3>
+<p>A state <span class="math inline">\(i\)</span> of a Markov chain has a period</p>
+<p><span class="math display">\[
+d(i) = \text{gcd}\{t \geq 1 : P(X_{t} = i|X_{0} = i) &gt; 0\}
+\]</span>.</p>
+<p>In our example, let <span class="math inline">\(i = \text{sun}\)</span> . Then $$</p>
+<p>d() = {t : P(X_{t} = |X_{0} = ) &gt; 0} = 1</p>
+<p>$$</p>
+<p>similarly, <span class="math inline">\(d(\text{cloud}) = 1\)</span>. As all states in the Markov chain have period <span class="math inline">\(1\)</span> we say the chain is aperiodic.</p>
 </section>
+<section id="irreducibility" class="level3">
+<h3 class="anchored" data-anchor-id="irreducibility">Irreducibility</h3>
+<p>A Markov chain in which every state can be reached from every other state is called an irrducible Markov chain. A state <span class="math inline">\(j\)</span> is said to be accessible(denoted <span class="math inline">\(i \rightarrow j\)</span>) from a state <span class="math inline">\(i\)</span> if there exists some <span class="math inline">\(t \geq 0\)</span> such that</p>
+<p><span class="math display">\[
+P(X_{t} = j|X_{0} = i) &gt; 0.
+\]</span></p>
+<p>If <span class="math inline">\(i \rightarrow j\)</span> and <span class="math inline">\(j \rightarrow i\)</span> then state <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are said to communicate. If all pairs of states communicate then the chain is irreducible.</p>
+<p>Our example chain is therefore clearly irreducible.</p>
 </section>
-<section id="r-examples" class="level1">
-<h1>R Examples</h1>
-<section id="r-markdown-example-file" class="level3">
-<h3 class="anchored" data-anchor-id="r-markdown-example-file">1. <a href="../notebooks/example_R.html">R markdown example file</a></h3>
+<section id="stationary-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="stationary-distribution">Stationary Distribution</h3>
+<p>As our example chain <span class="math inline">\(X_{t}\)</span> is both aperiodic and irreducible we conclude it has a stationary distribution <span class="math inline">\(P_{\infty}(X_t)\)</span>.</p>
+<p>To find the stationary distribution algebraically we note the stationary distribution must statisfy the equation</p>
+<p><span class="math display">\[
+P_{\infty}(X_t) \cdot T = P_{\infty}(X_t)
+\]</span> together with <span class="math inline">\(P_{\infty}(\text{sun}) + P_{\infty}(\text{cloud}) = 1\)</span>.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
