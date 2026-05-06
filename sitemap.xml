@@ -2,30 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/markov_chains.html</loc>
-    <lastmod>2026-04-30T21:25:01.777Z</lastmod>
+    <lastmod>2026-05-06T18:04:27.373Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/example_SIR.html</loc>
-    <lastmod>2026-04-30T21:25:01.777Z</lastmod>
+    <lastmod>2026-05-06T18:04:27.373Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/MCMC.html</loc>
-    <lastmod>2026-04-30T21:25:01.773Z</lastmod>
+    <lastmod>2026-05-06T18:04:27.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/materials/Day2.html</loc>
+    <lastmod>2026-05-06T18:04:27.374Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/index.html</loc>
-    <lastmod>2026-04-30T21:25:01.770Z</lastmod>
+    <lastmod>2026-05-06T18:04:27.366Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/about.html</loc>
-    <lastmod>2026-04-30T21:25:01.770Z</lastmod>
+    <lastmod>2026-05-06T18:04:27.365Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/materials/Day1.html</loc>
+    <lastmod>2026-05-06T18:04:27.374Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/index.html</loc>
+    <lastmod>2026-05-06T18:04:27.373Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/example_R.html</loc>
-    <lastmod>2026-04-30T21:25:01.773Z</lastmod>
+    <lastmod>2026-05-06T18:04:27.370Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/index.html</loc>
-    <lastmod>2026-04-30T21:25:01.777Z</lastmod>
+    <lastmod>2026-05-06T18:04:27.373Z</lastmod>
   </url>
 </urlset>
