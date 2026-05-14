@@ -88,21 +88,21 @@
     "href": "index.html#introductory-pathway",
     "title": "Website Test",
     "section": "Introductory Pathway",
-    "text": "Introductory Pathway\nWorkshop schedule 2026"
+    "text": "Introductory Pathway\nWorkshop schedule 2026 2027 2028"
   },
   {
     "objectID": "index.html#intermediate-pathway",
     "href": "index.html#intermediate-pathway",
     "title": "Website Test",
     "section": "Intermediate Pathway",
-    "text": "Intermediate Pathway\nWorkshop schedule 2026"
+    "text": "Intermediate Pathway\nWorkshop schedule 2026 2027 2028"
   },
   {
     "objectID": "index.html#advanced-pathway",
     "href": "index.html#advanced-pathway",
     "title": "Website Test",
     "section": "Advanced Pathway",
-    "text": "Advanced Pathway\nWorkshop schedule 2026"
+    "text": "Advanced Pathway\nWorkshop schedule 2026 2027 2028"
   },
   {
     "objectID": "index.html#projects",
@@ -117,6 +117,27 @@
     "title": "Website Test",
     "section": "Support",
     "text": "Support\nThis project is funded by NSF 2436761, which supports data science education and training to build a strong national data science infrastructure and workforce. Additionally, This project is co-funded by the Innovative Technology Experiences for Students and Teachers (ITEST) program, which supports projects that build understandings of practices, program elements, contexts and processes contributing to increasing students’ knowledge and interest in science, technology, engineering, and mathematics (STEM) and information and communication technology (ICT) careers."
+  },
+  {
+    "objectID": "schedule/schedule_2026_int.html",
+    "href": "schedule/schedule_2026_int.html",
+    "title": "Workshop schedule",
+    "section": "",
+    "text": "Summer sessions are three full days of in‑person professional learning designed to build your confidence and skill in teaching data science. During the Summer Sessions, you’ll participate in interactive instructional routines, hands‑on lesson activities, and collaborative exploration of the data cycle and data science habits of mind. Educators will receive high‑quality, free resources that can be implemented immediately in the classroom, with clear connections to academic standards.\nLocation: Ponderosa High School, 2884 N. Steves Blvd, Flagstaff, AZ\nDates: June 22-24, 2026\nTime: 8:00 AM – 4:00 PM\n*Bring your own device. Come ready to engage, collaborate, and bring fresh data‑driven learning experiences back to your students."
+  },
+  {
+    "objectID": "schedule/schedule_2026_int.html#summer-sessions",
+    "href": "schedule/schedule_2026_int.html#summer-sessions",
+    "title": "Workshop schedule",
+    "section": "",
+    "text": "Summer sessions are three full days of in‑person professional learning designed to build your confidence and skill in teaching data science. During the Summer Sessions, you’ll participate in interactive instructional routines, hands‑on lesson activities, and collaborative exploration of the data cycle and data science habits of mind. Educators will receive high‑quality, free resources that can be implemented immediately in the classroom, with clear connections to academic standards.\nLocation: Ponderosa High School, 2884 N. Steves Blvd, Flagstaff, AZ\nDates: June 22-24, 2026\nTime: 8:00 AM – 4:00 PM\n*Bring your own device. Come ready to engage, collaborate, and bring fresh data‑driven learning experiences back to your students."
+  },
+  {
+    "objectID": "schedule/schedule_2026_int.html#community-of-practice",
+    "href": "schedule/schedule_2026_int.html#community-of-practice",
+    "title": "Workshop schedule",
+    "section": "Community of Practice",
+    "text": "Community of Practice\nThroughout the school year, educators will participate in a vibrant Community of Practice: an opportunity for continued learning, collaboration, and professional growth. Each month, teachers will connect with data science education experts from around the world to explore new ideas, refine instructional strategies, and develop actionable plans for integrating data science into their classrooms. These sessions support teachers in building confidence, sharing successes, and tackling challenges as they bring authentic data experiences to students. Save the dates on your calendar, Zoom links will be shared prior to each meeting to ensure easy access and smooth participation.\nDate and Time Speakers Registration Link\nTuesday August 18, 2026 4:00pm-5:30pm Hannah Kurzweil (DataScience4Everyone)\nTuesday, September 15, 2026 4:00pm-5:30pm Aaron Reedy (Data Classroom)\nTuesday, November 17, 2026 4:00pm-5:30pm Emmanuel Schanzer (Bootstrap)\nTuesday, December 15, 2026 4:00pm-5:30pm Josh Recio (Dana Center)\nTuesday, January 12, 2027 4:00pm-5:30pm Hollylynne Lee (North Carolina State University)\nTuesday, February 9, 2027 4:00pm-5:30pm Ji Yun Son & Aleks Kaplon-Schilis (CourseKata)\nTuesday, April 21, 2027 4:00pm-5:30pm TBD\nTuesday, May 11, 2027 4:00pm-5:30pm Kate Miller (Concord Consortium)"
   },
   {
     "objectID": "about.html",
