@@ -61,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -105,6 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -195,7 +198,17 @@ window.Quarto = {
   <li><a href="#multi-dimensional-dynamical-systems" id="toc-multi-dimensional-dynamical-systems" class="nav-link" data-scroll-target="#multi-dimensional-dynamical-systems">Multi-Dimensional Dynamical Systems</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#sis-model" id="toc-sis-model" class="nav-link" data-scroll-target="#sis-model">SIS Model</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">### Exercise 3</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">### Exercise 3</a>
+  <ul class="collapse">
+  <li><a href="#extensions-of-the-sis-model" id="toc-extensions-of-the-sis-model" class="nav-link" data-scroll-target="#extensions-of-the-sis-model">Extensions of the SIS Model</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  </ul></li>
+  <li><a href="#graphical-modeling" id="toc-graphical-modeling" class="nav-link" data-scroll-target="#graphical-modeling">Graphical Modeling</a>
+  <ul class="collapse">
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#parameter-inference-and-the-loss-function" id="toc-parameter-inference-and-the-loss-function" class="nav-link" data-scroll-target="#parameter-inference-and-the-loss-function">Parameter Inference and the Loss Function</a></li>
+  <li><a href="#the-loss-function" id="toc-the-loss-function" class="nav-link" data-scroll-target="#the-loss-function">The Loss Function</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -271,14 +284,18 @@ X_{t+1} = 2 X_t
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
 <hr>
+</section>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<hr>
 <p>This model is good for the growth phase of bacteria, but it assumes the amount of food available to the bacteria is unlimited. In practice the bacteria population will not grow forever and will plateau as the amount of food in the environment declines. We can adjust our model to reflect this,</p>
 <p><span class="math display">\[
 X_{t+1} = X_{t} + X_{t}\left(1 - \frac{X_{t}}{N}\right)
 \]</span></p>
 <p>where the term <span class="math inline">\(\left(1 - \frac{X_{t}}{N}\right)\)</span> will damp the growth of <span class="math inline">\(X_t\)</span> as it gets close to <span class="math inline">\(N\)</span>. The parameter <span class="math inline">\(N\)</span> represents the “carrying capacity” of the environment, e.g.&nbsp;the number of bacteria the environment can support. Let’s set <span class="math inline">\(N = 100\)</span> and simulate this new system.</p>
 <p>This simulation should “look like” the original model near the beginning but begin to plateau near the carrying capacity as time goes on.</p>
-<div id="39c55786" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ts = np.arange(0,15 + 1,1) #We will compute the bacteria population over a ten hour period</span></span>
+<div id="39c55786" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">15</span> <span class="op">+</span> <span class="dv">1</span>,<span class="dv">1</span>) <span class="co">#We will compute the bacteria population over a ten hour period</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># xs = np.zeros(len(ts))</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># xs[0] = 1 #Set the initial condition</span></span>
@@ -293,6 +310,8 @@ X_{t+1} = X_{t} + X_{t}\left(1 - \frac{X_{t}}{N}\right)
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.xlabel('Time (hours)')</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.ylabel('Population')</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.show()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </div>
 <p>Observing the graph we see that we only know the number of bacteria each hour, but in reality bacteria reproduce continuously. This raises the question, “Can we create a dynamical system in continuous time with the same properties as our discrete time dynamics?”</p>
 <p>First lets examine <span class="math display">\[
@@ -419,6 +438,9 @@ X(t) = \frac{N}{1 + \left(\frac{N - X_0}{X_0}\right) e^{-rt}}
 <section id="solving-continuous-time-dynamical-systems-numerically" class="level4">
 <h4 class="anchored" data-anchor-id="solving-continuous-time-dynamical-systems-numerically">Solving Continuous Time Dynamical Systems Numerically</h4>
 <hr>
+<section id="solving-continuous-time-dynamical-systems-numerically" class="level4">
+<h4 class="anchored" data-anchor-id="solving-continuous-time-dynamical-systems-numerically">Solving Continuous Time Dynamical Systems Numerically</h4>
+<hr>
 <p>In general, continuous time dynamical systems look like</p>
 <p><span class="math display">\[
 \begin{align*}
@@ -461,6 +483,7 @@ X(0) &amp;= 0. \\
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(X,t): </span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> t <span class="op">-</span> X <span class="op">-</span> X<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> t <span class="op">-</span> X <span class="op">-</span> X<span class="op">**</span><span class="dv">3</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t_index <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="bu">len</span>(ts_cont)): </span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    x_prev <span class="op">=</span> xs[t_index <span class="op">-</span> <span class="dv">1</span>]</span>
@@ -494,7 +517,7 @@ X(0) &amp;= 0. \\
 \]</span></p>
 <p>where <span class="math inline">\(x\)</span> is the density of prey and <span class="math inline">\(y\)</span> is the density of predators. The parameter <span class="math inline">\(\alpha\)</span> describes the growth rate of prey, and the parameter <span class="math inline">\(\beta\)</span> the effect of the presence of predators on the prey death rate. The parameter <span class="math inline">\(\gamma\)</span> describes the predators death rate, and the parameter <span class="math inline">\(\delta\)</span> describes the effect of the presence of prey on the predators growth rate.</p>
 <p>To solve this equation numerically, we follow the same procedure as for our one dimensional dynamical systems but treating <span class="math inline">\(X(t)\)</span> as the vector <span class="math inline">\(X(t) = [x(t),y(t)]^{T}\)</span> instead of a scalar.</p>
-<div id="39f6ee17" class="cell" data-execution_count="18">
+<div id="39f6ee17" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>par <span class="op">=</span> np.array([<span class="fl">1.1</span>,<span class="fl">0.4</span>,<span class="fl">0.4</span>,<span class="fl">0.1</span>]) <span class="co">#alpha,beta,gamma,delta</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>delta_t <span class="op">=</span> <span class="fl">0.001</span></span>
@@ -554,11 +577,144 @@ X(0) &amp;= 0. \\
 <h2 class="anchored" data-anchor-id="exercise-3">### Exercise 3</h2>
 <ol type="a">
 <li><p>Simulate the SIS model using <span class="math inline">\(\beta = 0.3\)</span> and <span class="math inline">\(\gamma = 0.1\)</span>.</p></li>
-<li><p>Evaluate the effect of changing <code>delta_t</code> on the solution. In particular, choose different values of <code>delta_t</code> and graph the resultant <span class="math inline">\(I(t)\)</span> curve for each <code>delta_t</code> on the same plot.</p></li>
-<li><p>Evaluate the effect of changing <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span>. Plot the results of keeping <code>gamma</code> fixed and changing <code>beta</code> and the results of keeping <code>beta</code> fixed and changing <code>gamma</code>. What happens if <span class="math inline">\(\gamma &gt; \beta\)</span>?</p></li>
+<li><p>Evaluate the effect of changing <span class="math inline">\(\delta t\)</span> on the solution. In particular, choose different values of <span class="math inline">\(\delta t\)</span> and graph the resultant <span class="math inline">\(I(t)\)</span> curve for each <span class="math inline">\(\delta t\)</span> on the same plot.</p></li>
+<li><p>Evaluate the effect of changing <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span>. Plot the results of keeping <span class="math inline">\(\gamma\)</span> fixed and changing <span class="math inline">\(\beta\)</span> and the results of keeping <span class="math inline">\(\beta\)</span> fixed and changing <span class="math inline">\(\gamma\)</span>. What happens if <span class="math inline">\(\gamma &gt; \beta\)</span>?</p></li>
 </ol>
+<section id="extensions-of-the-sis-model" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-of-the-sis-model">Extensions of the SIS Model</h3>
+<p>The SIS model is a useful tool for epidemiological modeling but it has limitations. In particular, the SIS model does not describe the impact of immunity. In many dieases such as influenza those who contract the disease cannot be infected again within the same season and effectively exit the disease dynamics. To describe immunity in a compartmental framework we introduce an additional compartment called R(recovered or removed).</p>
+<p><span class="math display">\[
+\begin{align*}
+\frac{dS}{dt} &amp;= -\beta S I \\
+\frac{dI}{dt} &amp; = \beta S I  - \gamma I \\
+\frac{dR}{dt} &amp;= \gamma I
+\end{align*}
+\]</span></p>
+<p>People who contract the disease and recover do not reenter the disease dynamics, hence the label “removed”.</p>
+</section>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
+<hr>
+<ol type="a">
+<li>Simulate the SIR model using the parameter values <span class="math inline">\(\beta = 0.3\)</span>,<span class="math inline">\(\gamma = 0.1\)</span>, and the initial condition <span class="math inline">\(S = 500\)</span>, <span class="math inline">\(I = 5\)</span>, and <span class="math inline">\(R = 0\)</span>.</li>
+</ol>
+</section>
+</section>
+<section id="graphical-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="graphical-modeling">Graphical Modeling</h2>
+<p>The SIR framework can really be extended to any number of compartments, and a variety of models have been proposed including SEIR (Exposed) for COVID and SIRH (Hospitalized) which incorporates a hospitalization compartment. A useful tool to visualize these models is to describe them as a directed graph. For example the SIR model can written as</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Day2_files/figure-html/d09f8d26-2-SIR_graph.png" class="img-fluid figure-img"></p>
+<figcaption>SIR_graph.png</figcaption>
+</figure>
+</div>
+<p>where we think of people flowing between the compartments with rates given by <span class="math inline">\(\beta S I\)</span> and <span class="math inline">\(\gamma I\)</span>.</p>
+<p>We can write an SIRH model as</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Day2_files/figure-html/d09f8d26-1-SIRH_graph.png" class="img-fluid figure-img"></p>
+<figcaption>SIRH_graph.png</figcaption>
+</figure>
+</div>
+<p>where <span class="math inline">\(\beta,\gamma,\alpha,\gamma\)</span> are rate parameters.</p>
+<section id="exercise-5" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
+<hr>
+<ol type="a">
+<li><p>Write an SIRS model as both a graph and a differential equation. That is, a model where people can reenter the susceptible pool from the recovered compartment.</p></li>
+<li><p>Simulate the SIRS model, how do the dynamics change when compared to the SIR model?</p></li>
+<li><p>Write the graphical SIRH model as a system of differential equations.</p></li>
+</ol>
+</section>
+<section id="parameter-inference-and-the-loss-function" class="level3">
+<h3 class="anchored" data-anchor-id="parameter-inference-and-the-loss-function">Parameter Inference and the Loss Function</h3>
+<p>In our simulation examples we knew the initial condition and parameters of the system (<span class="math inline">\(\beta\)</span>,<span class="math inline">\(\gamma\)</span>) and generated a solution <span class="math inline">\(X(t) = [S(t),I(t),R(t)]^T\)</span>. In practice we often have a noisy estimate of the solution to the system, and we want to figure out what the parameters are. As a motivational example consider the following fictional example.</p>
+<p>We have a dataset representing recorded influenza infections in a town of <span class="math inline">\(500\)</span> over the past year’s flu season (october-may). First, we will load and plot this dataset to determine if our SIR model will be a good fit.</p>
+<div id="6c77eb4a" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'../fictious_data.csv'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.shape) <span class="co">#(rows,columns)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>data.head() <span class="co">## Prints the first few rows of the dataframe</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(212, 2)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2025-10-01</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2025-10-02</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2025-10-03</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2025-10-04</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>2025-10-05</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="a55e5cc4" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> ticker</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> data.plot(x<span class="op">=</span><span class="st">'date'</span>, y<span class="op">=</span><span class="st">'count'</span>, kind<span class="op">=</span><span class="st">'scatter'</span>,rot <span class="op">=</span> <span class="dv">45</span>,marker <span class="op">=</span> <span class="st">'x'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Infection Counts over Time'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_locator(ticker.MultipleLocator(<span class="dv">28</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Day2_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>So our data appears to well approximate our SIR infection curve, and therefore we can try to learn the transmission and recovery rates. For this example, let’s assume we know the initial condition <span class="math inline">\(X(0) = [495,5,0]\)</span> but in general it is also possible to learn this from data!</p>
+</section>
+<section id="the-loss-function" class="level3">
+<h3 class="anchored" data-anchor-id="the-loss-function">The Loss Function</h3>
+<p>Let’s think about how we could try to uncover the data generating parameters <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span>.</p>
+<p>We have noisy data about the infection curve <span class="math inline">\(I(t)\)</span> and we need some way to relate our data to our model. To do so, we can utilize what’s called a loss function. The loss function is a scalar function that takes in our proposed parameter values and outputs a single value representing the distance between the data and the proposed solution. Mathematically we can write the loss function as</p>
+<p><span class="math display">\[
+\begin{align*}
+\mathcal{L}(\beta,\gamma) = \sum\limits_{n=1}^{N}(x_{n} - I(t_n;\beta,\gamma))^2
+\end{align*}
+\]</span> where <span class="math inline">\(\{x\}_{n=1}^{N}\)</span> represents the data(<span class="math inline">\(N\)</span> days of data) and <span class="math inline">\(I(t_n;\beta,\gamma)\)</span> the I compartment solution with the proposed parameter values.</p>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
