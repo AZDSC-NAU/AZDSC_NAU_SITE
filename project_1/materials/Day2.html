@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-3e7735b7b22659e5fa437aca0bb49075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -208,6 +208,8 @@ window.Quarto = {
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#parameter-inference-and-the-loss-function" id="toc-parameter-inference-and-the-loss-function" class="nav-link" data-scroll-target="#parameter-inference-and-the-loss-function">Parameter Inference and the Loss Function</a></li>
   <li><a href="#the-loss-function" id="toc-the-loss-function" class="nav-link" data-scroll-target="#the-loss-function">The Loss Function</a></li>
+  <li><a href="#optimization" id="toc-optimization" class="nav-link" data-scroll-target="#optimization">Optimization</a></li>
+  <li><a href="#automatic-differentiation" id="toc-automatic-differentiation" class="nav-link" data-scroll-target="#automatic-differentiation">Automatic Differentiation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -255,7 +257,7 @@ X_{t+1} = 2 X_t
 <p>where <span class="math inline">\(t \in \text{hour 0}, \text{hour 1}, \dots\)</span>.</p>
 <p>Now we will use python to simulate this dynamical system and predict bacteria populations in the future. Before starting, note that we will require one more component to fully specify this system, the initial condition. If we don’t know the population of the bacteria at time 0 we cannot calculate the population at time 1 and therefore we can’t predict the population at time 2 and so on.</p>
 <p>Let’s set the initial population of bacteria to 1, so <span class="math inline">\(X_{0} = 1\)</span>.</p>
-<div id="f20dfe87" class="cell" data-execution_count="1">
+<div id="f20dfe87" class="cell" data-execution_count="55">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -290,7 +292,7 @@ X_{t+1} = X_{t} + X_{t}\left(1 - \frac{X_{t}}{N}\right)
 \]</span></p>
 <p>where the term <span class="math inline">\(\left(1 - \frac{X_{t}}{N}\right)\)</span> will damp the growth of <span class="math inline">\(X_t\)</span> as it gets close to <span class="math inline">\(N\)</span>. The parameter <span class="math inline">\(N\)</span> represents the “carrying capacity” of the environment, e.g.&nbsp;the number of bacteria the environment can support. Let’s set <span class="math inline">\(N = 100\)</span> and simulate this new system.</p>
 <p>This simulation should “look like” the original model near the beginning but begin to plateau near the carrying capacity as time goes on.</p>
-<div id="39c55786" class="cell" data-execution_count="2">
+<div id="39c55786" class="cell" data-execution_count="56">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">15</span> <span class="op">+</span> <span class="dv">1</span>,<span class="dv">1</span>) <span class="co">#We will compute the bacteria population over a ten hour period</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> np.zeros(<span class="bu">len</span>(ts))</span>
@@ -365,7 +367,7 @@ X(0) &amp;= De^{0} \\
 \end{align*}
 \]</span></p>
 <p>So we are left with the <span class="math inline">\(X(t) = e^{x}\)</span>. Let’s now plot this function alongside our discrete time dynamical system above.</p>
-<div id="257211df" class="cell" data-execution_count="3">
+<div id="257211df" class="cell" data-execution_count="57">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span> <span class="op">+</span> <span class="dv">1</span>,<span class="dv">1</span>) <span class="co">#We will compute the bacteria population over a ten hour period</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ts_cont <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span> <span class="op">+</span> <span class="fl">0.1</span>,<span class="fl">0.1</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -402,7 +404,7 @@ r &amp;= \ln(2).
 \end{align*}
 \]</span></p>
 <p>So we have derived our growth rate <span class="math inline">\(r = \ln(2)\)</span>. Let’s plot the two equations again.</p>
-<div id="2a5ec6d4" class="cell" data-execution_count="4">
+<div id="2a5ec6d4" class="cell" data-execution_count="58">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span> <span class="op">+</span> <span class="dv">1</span>,<span class="dv">1</span>) <span class="co">#We will compute the bacteria population over a ten hour period</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ts_cont <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span> <span class="op">+</span> <span class="fl">0.1</span>,<span class="fl">0.1</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -472,7 +474,7 @@ X(t + \Delta t) = X(t) + \Delta t \cdot f(X(t),t)
 X(0) &amp;= 0. \\
 \end{align*}
 \]</span></p>
-<div id="dabce2ff" class="cell" data-execution_count="5">
+<div id="dabce2ff" class="cell" data-execution_count="59">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>delta_t <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ts_cont <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span> <span class="op">+</span> delta_t,delta_t)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -514,7 +516,7 @@ X(0) &amp;= 0. \\
 \]</span></p>
 <p>where <span class="math inline">\(x\)</span> is the density of prey and <span class="math inline">\(y\)</span> is the density of predators. The parameter <span class="math inline">\(\alpha\)</span> describes the growth rate of prey, and the parameter <span class="math inline">\(\beta\)</span> the effect of the presence of predators on the prey death rate. The parameter <span class="math inline">\(\gamma\)</span> describes the predators death rate, and the parameter <span class="math inline">\(\delta\)</span> describes the effect of the presence of prey on the predators growth rate.</p>
 <p>To solve this equation numerically, we follow the same procedure as for our one dimensional dynamical systems but treating <span class="math inline">\(X(t)\)</span> as the vector <span class="math inline">\(X(t) = [x(t),y(t)]^{T}\)</span> instead of a scalar.</p>
-<div id="39f6ee17" class="cell" data-execution_count="6">
+<div id="39f6ee17" class="cell" data-execution_count="60">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>par <span class="op">=</span> np.array([<span class="fl">1.1</span>,<span class="fl">0.4</span>,<span class="fl">0.4</span>,<span class="fl">0.1</span>]) <span class="co">#alpha,beta,gamma,delta</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>delta_t <span class="op">=</span> <span class="fl">0.001</span></span>
@@ -628,7 +630,7 @@ X(0) &amp;= 0. \\
 <h3 class="anchored" data-anchor-id="parameter-inference-and-the-loss-function">Parameter Inference and the Loss Function</h3>
 <p>In our simulation examples we knew the initial condition and parameters of the system (<span class="math inline">\(\beta\)</span>,<span class="math inline">\(\gamma\)</span>) and generated a solution <span class="math inline">\(X(t) = [S(t),I(t),R(t)]^T\)</span>. In practice we often have a noisy estimate of the solution to the system, and we want to figure out what the parameters are. As a motivational example consider the following fictional example.</p>
 <p>We have a dataset representing recorded influenza infections in a town of <span class="math inline">\(500\)</span> over the past year’s flu season (october-may). First, we will load and plot this dataset to determine if our SIR model will be a good fit.</p>
-<div id="6c77eb4a" class="cell" data-execution_count="7">
+<div id="6c77eb4a" class="cell" data-execution_count="61">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'../fictious_data.csv'</span>)</span>
@@ -639,7 +641,7 @@ X(0) &amp;= 0. \\
 <div class="cell-output cell-output-stdout">
 <pre><code>(212, 2)</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="61">
 <div>
 
 
@@ -683,7 +685,7 @@ X(0) &amp;= 0. \\
 </div>
 </div>
 </div>
-<div id="a55e5cc4" class="cell" data-execution_count="8">
+<div id="a55e5cc4" class="cell" data-execution_count="62">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> ticker</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> data.plot(x<span class="op">=</span><span class="st">'date'</span>, y<span class="op">=</span><span class="st">'count'</span>, kind<span class="op">=</span><span class="st">'scatter'</span>,rot <span class="op">=</span> <span class="dv">45</span>,marker <span class="op">=</span> <span class="st">'x'</span>)</span>
@@ -709,6 +711,331 @@ X(0) &amp;= 0. \\
 \mathcal{L}(\beta,\gamma) = \sum\limits_{n=1}^{N}(x_{n} - I(t_n;\beta,\gamma))^2
 \end{align*}
 \]</span> where <span class="math inline">\(\{x\}_{n=1}^{N}\)</span> represents the data(<span class="math inline">\(N\)</span> days of data) and <span class="math inline">\(I(t_n;\beta,\gamma)\)</span> the I compartment solution with the proposed parameter values.</p>
+<p>So our inference process proceeds by proposing a value of the parameters, evaluating the loss function at that value, then making a new guess until the value of the loss function is sufficiently small. Our loss function should be minimized when the distance between the data and the <span class="math inline">\(I\)</span> compartment is as small as possible. Furthermore, because <span class="math inline">\(\mathcal{L}\)</span> is quadratic it has a unique global minimum!</p>
+<p>We now implement the loss function in Python. First, lets wrap our Euler solver up in a function.</p>
+<div id="c2e22400" class="cell" data-execution_count="63">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sir_rhs(X,params):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    S,I,R <span class="op">=</span> X</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> S <span class="op">+</span> I <span class="op">+</span> R</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    beta,gamma <span class="op">=</span> params </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    dS <span class="op">=</span> <span class="op">-</span>beta <span class="op">*</span> S <span class="op">*</span> I<span class="op">/</span>N</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    dI <span class="op">=</span> beta <span class="op">*</span> S <span class="op">*</span> I<span class="op">/</span>N <span class="op">-</span> gamma <span class="op">*</span> I</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    dR <span class="op">=</span> gamma <span class="op">*</span> I</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([dS,dI,dR])</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model(rhs,x0,ts,par):</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    delta_t <span class="op">=</span> ts[<span class="dv">1</span>]<span class="op">-</span>ts[<span class="dv">0</span>] </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> np.zeros((<span class="bu">len</span>(ts),<span class="bu">len</span>(x0)))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    xs[<span class="dv">0</span>,:] <span class="op">=</span> x0 </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t_index <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="bu">len</span>(ts)): </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        x_prev <span class="op">=</span> xs[t_index <span class="op">-</span> <span class="dv">1</span>]</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        xs[t_index] <span class="op">=</span> x_prev <span class="op">+</span> delta_t <span class="op">*</span> rhs(x_prev,par)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> xs</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> np.array([<span class="fl">495.</span>,<span class="fl">5.</span>,<span class="fl">0.</span>])</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>delta_t <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">100</span> <span class="op">+</span> delta_t,delta_t)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>par <span class="op">=</span> (<span class="fl">0.3</span>,<span class="fl">0.1</span>) <span class="co">#beta,gamma</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> model(sir_rhs,x0,ts,par)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Solution to the SIR System"</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>plt.plot(ts,sol,label <span class="op">=</span> [<span class="st">'S'</span>,<span class="st">'I'</span>,<span class="st">'R'</span>])</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'# of People in Compartment'</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Days'</span>)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Day2_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now we implement the loss function, the notation <code>::int(1/delta_t)</code> is used to extract every <code>1/delta_t</code>th element. Since <code>delta_t</code> is 0.1 this extracts every 10th element, i.e.&nbsp;the value of the model on each day.</p>
+<div id="2b6e2b7e" class="cell" data-execution_count="64">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loss(par_prop,data):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    x0 <span class="op">=</span> np.array([<span class="fl">495.</span>,<span class="fl">5.</span>,<span class="fl">0.</span>])</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    delta_t <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    ts <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="bu">len</span>(data),delta_t)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    sol_prop <span class="op">=</span> model(sir_rhs,x0,ts,par_prop)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>((data <span class="op">-</span> sol_prop[::<span class="bu">int</span>(<span class="dv">1</span><span class="op">/</span>delta_t),<span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span>) </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>loss((<span class="fl">0.3</span>,<span class="fl">0.1</span>),data[<span class="st">'count'</span>].to_numpy())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>np.float64(355524.76875097025)</code></pre>
+</div>
+</div>
+<p>Great! So we can evaluate our loss function for different values of the parameters. Now we want to find the values of the parameters which minimize the loss function. To start with we can plot our loss function to visualize it.</p>
+<div id="18a50772" class="cell" data-execution_count="65">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>spacing <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>param_range <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="fl">0.5</span> <span class="op">+</span> spacing, spacing)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>B, G <span class="op">=</span> np.meshgrid(param_range, param_range)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>loss_vals <span class="op">=</span> np.zeros(B.shape)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>numpy_data <span class="op">=</span> data[<span class="st">'count'</span>].to_numpy()</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(param_range)): </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(param_range)): </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        loss_vals[i, j] <span class="op">=</span> loss((B[i, j], G[i, j]), numpy_data)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>flat_index <span class="op">=</span> np.argmin(loss_vals)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>row, col <span class="op">=</span> np.unravel_index(flat_index, loss_vals.shape)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>best_beta <span class="op">=</span> B[row, col]</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>best_gamma <span class="op">=</span> G[row, col]</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>min_loss <span class="op">=</span> loss_vals[row, col]</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Minimum occurs at: β=</span><span class="sc">{</span>best_beta<span class="sc">:.4f}</span><span class="ss">, γ=</span><span class="sc">{</span>best_gamma<span class="sc">:.4f}</span><span class="ss"> with value </span><span class="sc">{</span>min_loss<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Minimum occurs at: β=0.1500, γ=0.1000 with value 3403.3117</code></pre>
+</div>
+</div>
+<div id="5ca59dc1" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LogNorm</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.contourf(B, G, loss_vals, levels<span class="op">=</span>np.logspace(np.log10(loss_vals.<span class="bu">min</span>()), </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                                               np.log10(loss_vals.<span class="bu">max</span>()), <span class="dv">50</span>), </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>             norm<span class="op">=</span>LogNorm(), cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.scatter(best_beta, best_gamma, color<span class="op">=</span><span class="st">'red'</span>, edgecolors<span class="op">=</span><span class="st">'white'</span>, s<span class="op">=</span><span class="dv">20</span>, label<span class="op">=</span><span class="st">'Minimum'</span>, zorder<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Contour Plot of the Loss Function"</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"</span><span class="dv">$\b</span><span class="vs">eta</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="er">\</span><span class="vs">gamma</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Day2_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see the loss function has a well defined global minimum, and visually we can see this occurs at <span class="math inline">\((0.15,0.1)\)</span> which are the real parameter values used to generate the data.</p>
+<p>To recap, we have taken a dataset which contains a noisy estimate of the infection curve and identified the values of <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> most likely to have produced this data.</p>
+</section>
+<section id="optimization" class="level3">
+<h3 class="anchored" data-anchor-id="optimization">Optimization</h3>
+<p>In 1 and 2 dimensional parameter spaces we can often do this grid search to find optimal parameter values. However in higher dimensions performing a grid search becomes extremely costly. We therefore need smarter techniques for identifying the minimum of our loss function.</p>
+<p>Many techniques exist for optimizing loss functions, including metaheuristic algorithms like Particle Swarm Optimization or Ant Colony Optimization. In addition, machine learning commonly makes use of differentiable loss functions whose gradients can be used to make intelligent steps.</p>
+<p>Instead of identifying minimum values in a single step, many optimization algorithms take small steps in the parameter space until some convergence criteria is reached. As an illustrative example we will now consider gradient descent.</p>
+<section id="gradient-descent" class="level4">
+<h4 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h4>
+<p>Gradient descent is a technique for finding the minimums of functions which involves taking many small steps in the direction of steepest descent. Mathematically we write</p>
+<p><span class="math display">\[
+\theta_{n+1} = \theta_{n} - \eta \nabla \mathcal{L}(\theta_{n})
+\]</span></p>
+<p>Where <span class="math inline">\(\theta_{n}\)</span> is the current best guess for the parameters which minimize <span class="math inline">\(\mathcal{L}\)</span>, <span class="math inline">\(\eta\)</span> is a parameter that controls the step size, and <span class="math inline">\(\nabla \mathcal{L}(\theta_{n})\)</span> is a vector called the gradient. The gradient is defined as</p>
+<p><span class="math inline">\(\nabla \mathcal{L}(\theta) = [\frac{\partial \mathcal{L}}{\partial \theta^{1}},\dots,\frac{\partial \mathcal{L}}{\partial \theta^{k}}]\)</span> where the index of <span class="math inline">\(\theta^{i}\)</span> ranges from <span class="math inline">\(0\)</span> to <span class="math inline">\(k\)</span>.</p>
+<p>The idea of the gradient is that for any scalar function the gradient tells us the direction to move to increase the value of the function as quickly as possible.</p>
+<p>For example, take the function <span class="math inline">\(f(x,y) = e^{-(x^2 + y^2)}\)</span> plotted below.</p>
+<div id="12811ac2" class="cell" data-execution_count="72">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Plot of f(x,y)'</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>xy_range <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span> <span class="op">+</span> spacing, spacing)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(xy_range, xy_range)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>plt.contourf(X, Y, np.exp(<span class="op">-</span>(X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y<span class="op">**</span><span class="dv">2</span>)), cmap<span class="op">=</span><span class="st">'viridis'</span>,levels <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"y"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Day2_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see this function has a maximum at <span class="math inline">\((0,0)\)</span>. Suppose we have are starting at a point <span class="math inline">\((1,2)\)</span> and we want to take a series of small steps towards the maximum. We can compute the gradient</p>
+<p><span class="math display">\[
+\begin{align*}
+\nabla \mathcal{f}(x,y) &amp;= \left[\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}\right] \\
+&amp;= \left[\frac{\partial}{\partial x}\left(e^{-(x^2 + y^2)}\right),\frac{\partial}{\partial x}\left(e^{-(x^2 + y^2)}\right) \right] \\
+&amp;= \left[-2x e^{-(x^2 + y^2)},-2y e^{-(x^2 + y^2)}\right].
+\end{align*}
+\]</span></p>
+<p>This gives us a vector for each point in the domain of <span class="math inline">\(f\)</span>. If we take a step along that vector we will increase the function value as quickly as possible. Let’s visualize this.</p>
+<div id="c57cfafa" class="cell" data-execution_count="78">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>step_size <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> grad_f(x, y):</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([<span class="op">-</span><span class="dv">2</span> <span class="op">*</span> x <span class="op">*</span> np.exp(<span class="op">-</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>)), <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> y <span class="op">*</span> np.exp(<span class="op">-</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>))])</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>points_visited <span class="op">=</span> np.zeros((steps, <span class="dv">2</span>))</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>points_visited[<span class="dv">0</span>, :] <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">2.0</span>])</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, steps):</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    prev_point <span class="op">=</span> points_visited[step <span class="op">-</span> <span class="dv">1</span>, :]</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    curr_point <span class="op">=</span> prev_point <span class="op">+</span> step_size <span class="op">*</span> grad_f(prev_point[<span class="dv">0</span>], prev_point[<span class="dv">1</span>])</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    points_visited[step, :] <span class="op">=</span> curr_point</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Plot of f(x,y)"</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>xy_range <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span> <span class="op">+</span> spacing, spacing)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(xy_range, xy_range)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>plt.contourf(X, Y, np.exp(<span class="op">-</span>(X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y<span class="op">**</span><span class="dv">2</span>)), cmap<span class="op">=</span><span class="st">"viridis"</span>, levels<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>plt.scatter(points_visited[:, <span class="dv">0</span>], points_visited[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">"red"</span>, zorder<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"y"</span>)</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Day2_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s try this on another slightly more complicated function.</p>
+<div id="8ca6de2b" class="cell" data-execution_count="130">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x,y):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.exp(<span class="op">-</span>(x<span class="op">**</span>(<span class="dv">2</span>)<span class="op">+</span>y<span class="op">**</span>(<span class="dv">2</span>))) <span class="op">+</span> np.sin(x <span class="op">-</span> y)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>step_size <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> grad_f(x, y):</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.array([np.cos(x<span class="op">-</span>y)<span class="op">-</span><span class="dv">2</span> <span class="op">*</span> x <span class="op">*</span> np.exp(<span class="op">-</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>)),<span class="op">-</span><span class="dv">2</span> <span class="op">*</span> y <span class="op">*</span> np.exp(<span class="op">-</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>)) <span class="op">-</span> np.cos(x<span class="op">-</span>y)])</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>points_visited <span class="op">=</span> np.zeros((steps, <span class="dv">2</span>))</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>points_visited[<span class="dv">0</span>, :] <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">1.</span>, <span class="fl">0.0</span>])</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, steps):</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    prev_point <span class="op">=</span> points_visited[step <span class="op">-</span> <span class="dv">1</span>, :]</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    curr_point <span class="op">=</span> prev_point <span class="op">+</span> step_size <span class="op">*</span> grad_f(prev_point[<span class="dv">0</span>], prev_point[<span class="dv">1</span>])</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    points_visited[step, :] <span class="op">=</span> curr_point</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Plot of f(x,y)"</span>)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>xy_range <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span> <span class="op">+</span> spacing, spacing)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(xy_range, xy_range)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>vals <span class="op">=</span> f(X,Y)</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>plt.contourf(X, Y, vals, <span class="dv">20</span>)</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>plt.scatter(points_visited[:, <span class="dv">0</span>], points_visited[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">"red"</span>, zorder<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"y"</span>)</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Day2_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>By taking steps in the direction of the gradient we approach the maximum of our function. This technique is highly effective, however it requires manually calcuating the gradient for each function we want to optimize. For our loss function <span class="math inline">\(\mathcal{L}\)</span> this is clearly not possible.</p>
+</section>
+</section>
+<section id="automatic-differentiation" class="level3">
+<h3 class="anchored" data-anchor-id="automatic-differentiation">Automatic Differentiation</h3>
+<p>Using modern machine learning libraries we can differentiate functions that are written in python with only a few lines of code. We will use the JAX library which can serve as a drop in replacement for NumPy where all the operations are differentiable.</p>
+<div id="869687ee" class="cell" data-execution_count="152">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jax.numpy <span class="im">as</span> jnp</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jax</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sir_rhs(X,params):</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    S,I,R <span class="op">=</span> X</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> S <span class="op">+</span> I <span class="op">+</span> R</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    beta,gamma <span class="op">=</span> params </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    dS <span class="op">=</span> <span class="op">-</span>beta <span class="op">*</span> S <span class="op">*</span> I<span class="op">/</span>N</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    dI <span class="op">=</span> beta <span class="op">*</span> S <span class="op">*</span> I<span class="op">/</span>N <span class="op">-</span> gamma <span class="op">*</span> I</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    dR <span class="op">=</span> gamma <span class="op">*</span> I</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jnp.array([dS,dI,dR])</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model(rhs,x0,ts,par):</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    delta_t <span class="op">=</span> ts[<span class="dv">1</span>]<span class="op">-</span>ts[<span class="dv">0</span>] </span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> scan_fn(carry,t_index): </span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        x_prev <span class="op">=</span> carry</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        x_curr <span class="op">=</span> x_prev <span class="op">+</span> delta_t <span class="op">*</span> rhs(x_prev,par)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x_curr,x_curr</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    xs,ys <span class="op">=</span> jax.lax.scan(scan_fn,init <span class="op">=</span> x0,xs <span class="op">=</span> ts)</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ys</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="6bc1f723" class="cell" data-execution_count="153">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loss(par_prop,data):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    x0 <span class="op">=</span> jnp.array([<span class="fl">495.</span>,<span class="fl">5.</span>,<span class="fl">0.</span>])</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    delta_t <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    ts <span class="op">=</span> jnp.arange(<span class="dv">0</span>,<span class="bu">len</span>(data),delta_t)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    sol_prop <span class="op">=</span> model(sir_rhs,x0,ts,par_prop)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jnp.<span class="bu">sum</span>((data <span class="op">-</span> sol_prop[::<span class="bu">int</span>(<span class="dv">1</span><span class="op">/</span>delta_t),<span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span>) </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>loss((<span class="fl">0.3</span>,<span class="fl">0.1</span>),data[<span class="st">'count'</span>].to_numpy())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="153">
+<pre><code>Array(355574.1, dtype=float32)</code></pre>
+</div>
+</div>
+<p>Now we can easily take the gradient of <code>loss</code> by using <code>jax.grad</code>. This will return a new function with the same signature of <code>loss</code> which gives the gradient.</p>
+<div id="8e8f3ba6" class="cell" data-execution_count="154">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>loss_grad <span class="op">=</span> jax.grad(loss)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>loss_grad((<span class="fl">0.3</span>,<span class="fl">0.1</span>),data[<span class="st">'count'</span>].to_numpy())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="154">
+<pre><code>(Array(2.455935e+06, dtype=float32, weak_type=True),
+ Array(-8.666227e+06, dtype=float32, weak_type=True))</code></pre>
+</div>
+</div>
+<p>We can now run our gradient descent on the loss function to obtain an estimate of our model parameters.</p>
+<div id="7dc00fa8" class="cell" data-execution_count="172">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="dv">150</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>step_size <span class="op">=</span> <span class="fl">0.00000001</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>points_visited <span class="op">=</span> np.zeros((steps, <span class="dv">2</span>))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>points_visited[<span class="dv">0</span>, :] <span class="op">=</span> np.array([<span class="fl">0.4</span>, <span class="fl">0.1</span>])</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, steps):</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    prev_point <span class="op">=</span> points_visited[step <span class="op">-</span> <span class="dv">1</span>, :]</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    curr_point <span class="op">=</span> prev_point <span class="op">-</span> step_size <span class="op">*</span> loss_grad(prev_point,numpy_data)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    points_visited[step, :] <span class="op">=</span> curr_point</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>plt.contourf(B, G, loss_vals, levels<span class="op">=</span>np.logspace(np.log10(loss_vals.<span class="bu">min</span>()), </span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>                                               np.log10(loss_vals.<span class="bu">max</span>()), <span class="dv">50</span>), </span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>             norm<span class="op">=</span>LogNorm(), cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>plt.scatter(points_visited[:,<span class="dv">0</span>],points_visited[:,<span class="dv">1</span>],color <span class="op">=</span> <span class="st">'red'</span>,zorder <span class="op">=</span> <span class="dv">100</span>,s <span class="op">=</span> <span class="fl">1.0</span>)</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Contour Plot of the Loss Function"</span>)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"</span><span class="dv">$\b</span><span class="vs">eta</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="er">\</span><span class="vs">gamma</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Param Estimate: </span><span class="sc">{</span>points_visited[<span class="op">-</span><span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Day2_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimal Param Estimate: [0.14965545 0.09865821]</code></pre>
+</div>
+</div>
+<p>We can see our algorithm iteratively approaches the minimum of the function as long as our step along the gradient is sufficiently small.</p>
 
 
 </section>
