@@ -16,6 +16,8 @@ This project is supported by the Data Science Corps program, which supports data
 
 ## Dashboard Links
 
+You can find the program information, meeting schedule, agenda and program contacts in the following.
+
 Introductory Pathway 
 [2026](https://docs.google.com/document/d/1HN1mC8yB2CI_n2YVYOlqeFdUBaTmdp3y2-VwJnV-wW0/edit?tab=t.0) 2027 2028
 
@@ -25,16 +27,20 @@ Intermediate Pathway
 Advanced Pathway 
 [2026](https://docs.google.com/document/d/1Tc2rZrXk7NFPUL9y7A_Tj2mVQTKoOIcNlgDxT8RQ__g/edit?tab=t.0) 2027 2028
 
-## Projects
+## Advanced Pathway Projects
 
-### [Inference of Parameters of Dynamical Systems](project_1/index.qmd)
+### [1. Inference of Parameters of Dynamical Systems](project_1/index.qmd)
 
 ## Support
 
 This project is funded by NSF 2436761, which supports data science education and training to build a strong national data science infrastructure and workforce. Additionally, This project is co-funded by the Innovative Technology Experiences for Students and Teachers (ITEST) program, which supports projects that build understandings of practices, program elements, contexts and processes contributing to increasing students' knowledge and interest in science, technology, engineering, and mathematics (STEM) and information and communication technology (ICT) careers.
 
-::: {style="float: left; margin: 5px;"}
-![](imgs/NSF-Logo-500x281.png)
+::: 
+![](imgs/NSF-Logo-500x281.png){{width=20%}
+
+![](imgs/NAU_Acronym_primary-281_3514-600x426.png){{width=20%}
+
+![](imgs/ADE-Seal-Logo-R0323-FINAL-1024x1024.png){{width=20%}
 :::
 
 
