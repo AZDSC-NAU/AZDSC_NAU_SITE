@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/about.html</loc>
-    <lastmod>2026-05-15T00:41:52.859Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/markov_chains.html</loc>
-    <lastmod>2026-05-15T00:41:52.864Z</lastmod>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/index.html</loc>
+    <lastmod>2026-06-11T15:50:43.402Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/example_R.html</loc>
-    <lastmod>2026-05-15T00:41:52.862Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/schedule/schedule_2026_intro.html</loc>
-    <lastmod>2026-05-15T00:41:52.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/index.html</loc>
-    <lastmod>2026-05-15T00:41:52.860Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/materials/Day1.html</loc>
-    <lastmod>2026-05-15T00:41:52.866Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/index.html</loc>
-    <lastmod>2026-05-15T00:41:52.866Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/materials/Day2.html</loc>
-    <lastmod>2026-05-15T00:41:52.869Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/schedule/schedule_2026_int.html</loc>
-    <lastmod>2026-05-15T00:41:52.872Z</lastmod>
+    <lastmod>2026-06-11T15:50:43.403Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/MCMC.html</loc>
-    <lastmod>2026-05-15T00:41:52.860Z</lastmod>
+    <lastmod>2026-06-11T15:50:43.403Z</lastmod>
   </url>
   <url>
-    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/index.html</loc>
-    <lastmod>2026-05-15T00:41:52.864Z</lastmod>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/schedule/schedule_2026_intro.html</loc>
+    <lastmod>2026-06-11T15:50:43.413Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/about.html</loc>
+    <lastmod>2026-06-11T15:50:43.401Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/materials/Day2.html</loc>
+    <lastmod>2026-06-11T15:50:43.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/index.html</loc>
+    <lastmod>2026-06-11T15:50:43.408Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/project_1/materials/Day1.html</loc>
+    <lastmod>2026-06-11T15:50:43.408Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/schedule/schedule_2026_int.html</loc>
+    <lastmod>2026-06-11T15:50:43.413Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/markov_chains.html</loc>
+    <lastmod>2026-06-11T15:50:43.406Z</lastmod>
   </url>
   <url>
     <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/example_SIR.html</loc>
-    <lastmod>2026-05-15T00:41:52.864Z</lastmod>
+    <lastmod>2026-06-11T15:50:43.406Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AZDSC-NAU.github.io/AZDSC_NAU_SITE/notebooks/index.html</loc>
+    <lastmod>2026-06-11T15:50:43.406Z</lastmod>
   </url>
 </urlset>
