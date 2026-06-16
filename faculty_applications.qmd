@@ -1,0 +1,43 @@
+---
+title: "Faculty Data Science Applications"
+---
+
+This page is a home for short data science applications contributed by university faculty. Each application can be written as a compact case study with a dataset, notebook, classroom question, and suggested extension.
+
+## Showcase Template
+
+::: {.feature-card}
+### Application Title
+
+**Faculty area:** Discipline or department
+
+**Data source:** Link to dataset or public data description
+
+**Classroom question:** A short question students can investigate
+
+**Materials:** Notebook, worksheet, slide deck, or activity guide
+
+**Adaptation notes:** Ideas for introductory, intermediate, and advanced learners
+:::
+
+## Coming Examples
+
+::: {.project-list}
+::: {.project-card}
+### Environmental Data
+
+Placeholder for a faculty example using environmental or climate data.
+:::
+
+::: {.project-card}
+### Public Health Data
+
+Placeholder for a faculty example using health, epidemiology, or community data.
+:::
+
+::: {.project-card}
+### Education Data
+
+Placeholder for a faculty example using classroom, assessment, or learning data.
+:::
+:::

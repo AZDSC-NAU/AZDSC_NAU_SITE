@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title> Introduction to Python and SciML Libraries  – Education Test Site</title>
+<title>Day 1: Python Foundations for Modeling and Inference – Arizona Data Science Corps</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -106,35 +106,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -147,7 +118,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Education Test Site</span>
+    <span class="navbar-title">Arizona Data Science Corps</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -160,18 +131,45 @@ window.Quarto = {
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pathways" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pathways</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pathways">    
+        <li>
+    <a class="dropdown-item" href="../../schedule/schedule_2026_intro.html">
+ <span class="dropdown-text">Introductory Pathway</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../schedule/schedule_2026_int.html">
+ <span class="dropdown-text">Intermediate Pathway</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../schedule/schedule_2026_advanced.html">
+ <span class="dropdown-text">Advanced Pathway</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../project_1/index.html"> 
+<span class="menu-text">Advanced Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notebooks/index.html"> 
+<span class="menu-text">Notebooks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../faculty_applications.html"> 
+<span class="menu-text">Faculty Applications</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../notebooks/index.html"> 
-<span class="menu-text">Demo Notebooks</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Avery-s-Organization/EducationGrantSite"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/AZDSC-NAU/AZDSC_NAU_SITE"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -186,17 +184,56 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#day-1-schedule" id="toc-day-1-schedule" class="nav-link active" data-scroll-target="#day-1-schedule">Day 1 schedule</a></li>
+  <li><a href="#python-as-a-modeling-notebook" id="toc-python-as-a-modeling-notebook" class="nav-link" data-scroll-target="#python-as-a-modeling-notebook">1. Python as a Modeling Notebook</a></li>
+  <li><a href="#variables-expressions-and-types" id="toc-variables-expressions-and-types" class="nav-link" data-scroll-target="#variables-expressions-and-types">2. Variables, Expressions, and Types</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-read-and-modify-parameters" id="toc-exercise-1-read-and-modify-parameters" class="nav-link" data-scroll-target="#exercise-1-read-and-modify-parameters">Exercise 1: Read and Modify Parameters</a></li>
+  </ul></li>
+  <li><a href="#functions-for-model-rules" id="toc-functions-for-model-rules" class="nav-link" data-scroll-target="#functions-for-model-rules">3. Functions for Model Rules</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2-function-checkpoint" id="toc-exercise-2-function-checkpoint" class="nav-link" data-scroll-target="#exercise-2-function-checkpoint">Exercise 2: Function Checkpoint</a></li>
+  </ul></li>
+  <li><a href="#lists-and-numpy-arrays" id="toc-lists-and-numpy-arrays" class="nav-link" data-scroll-target="#lists-and-numpy-arrays">4. Lists and NumPy Arrays</a>
+  <ul class="collapse">
+  <li><a href="#exercise-3-plotting-checkpoint" id="toc-exercise-3-plotting-checkpoint" class="nav-link" data-scroll-target="#exercise-3-plotting-checkpoint">Exercise 3: Plotting Checkpoint</a></li>
+  </ul></li>
+  <li><a href="#loops-for-simulation" id="toc-loops-for-simulation" class="nav-link" data-scroll-target="#loops-for-simulation">5. Loops for Simulation</a>
+  <ul class="collapse">
+  <li><a href="#exercise-4-simulation-lab" id="toc-exercise-4-simulation-lab" class="nav-link" data-scroll-target="#exercise-4-simulation-lab">Exercise 4: Simulation Lab</a></li>
+  </ul></li>
+  <li><a href="#randomness-and-reproducibility" id="toc-randomness-and-reproducibility" class="nav-link" data-scroll-target="#randomness-and-reproducibility">6. Randomness and Reproducibility</a>
+  <ul class="collapse">
+  <li><a href="#exercise-5-random-simulation-checkpoint" id="toc-exercise-5-random-simulation-checkpoint" class="nav-link" data-scroll-target="#exercise-5-random-simulation-checkpoint">Exercise 5: Random Simulation Checkpoint</a></li>
+  </ul></li>
+  <li><a href="#transition-matrices-for-markov-chains" id="toc-transition-matrices-for-markov-chains" class="nav-link" data-scroll-target="#transition-matrices-for-markov-chains">7. Transition Matrices for Markov Chains</a>
+  <ul class="collapse">
+  <li><a href="#exercise-6-transition-matrix-break" id="toc-exercise-6-transition-matrix-break" class="nav-link" data-scroll-target="#exercise-6-transition-matrix-break">Exercise 6: Transition Matrix Break</a></li>
+  </ul></li>
+  <li><a href="#from-model-output-to-data" id="toc-from-model-output-to-data" class="nav-link" data-scroll-target="#from-model-output-to-data">8. From Model Output to Data</a></li>
+  <li><a href="#a-first-likelihood-score" id="toc-a-first-likelihood-score" class="nav-link" data-scroll-target="#a-first-likelihood-score">9. A First Likelihood Score</a>
+  <ul class="collapse">
+  <li><a href="#exercise-7-inference-preview" id="toc-exercise-7-inference-preview" class="nav-link" data-scroll-target="#exercise-7-inference-preview">Exercise 7: Inference Preview</a></li>
+  </ul></li>
+  <li><a href="#monte-carlo-thinking" id="toc-monte-carlo-thinking" class="nav-link" data-scroll-target="#monte-carlo-thinking">10. Monte Carlo Thinking</a>
+  <ul class="collapse">
+  <li><a href="#exercise-8-end-of-day-synthesis" id="toc-exercise-8-end-of-day-synthesis" class="nav-link" data-scroll-target="#exercise-8-end-of-day-synthesis">Exercise 8: End-of-Day Synthesis</a></li>
+  </ul></li>
+  <li><a href="#day-2-preview" id="toc-day-2-preview" class="nav-link" data-scroll-target="#day-2-preview">Day 2 Preview</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><center><br>
-Introduction to Python and SciML Libraries<br>
-</center></h1>
+<h1 class="title">Day 1: Python Foundations for Modeling and Inference</h1>
 </div>
 
 
@@ -213,352 +250,490 @@ Introduction to Python and SciML Libraries<br>
 </header>
 
 
-<p>Here we will discuss the basic functionalities of Python that we use for data science and inference of dynamical systems.</p>
-<p>First we will touch on the syntax of Python.</p>
-<section id="variables" class="level4">
-<h4 class="anchored" data-anchor-id="variables">Variables</h4>
-<p>In Python, variables are defined using standard assignment syntax. Python does not require that the type of the variable be specified. For example <code>int x = 5</code> is not valid Python syntax, instead the variable type is inferred at runtime. All Python types can be assigned to variables including constants and functions. Varibles can also be reassigned to a new type without incident.</p>
+<p>Advanced Pathway Project 1: Epidemic Modeling and Inference</p>
+<p>By the end of today, participants should be able to:</p>
+<ul>
+<li>write small Python functions for mathematical models</li>
+<li>use NumPy arrays to store states, time grids, and observations</li>
+<li>make plots that communicate simulation results</li>
+<li>use loops to simulate repeated updates over time</li>
+<li>represent a Markov chain with a transition matrix</li>
+<li>simulate random events and summarize Monte Carlo results</li>
+<li>connect likelihood, parameters, and noisy observations before Day 3 MCMC</li>
+</ul>
+<section id="day-1-schedule" class="level2">
+<h2 class="anchored" data-anchor-id="day-1-schedule">Day 1 schedule</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>8:00-8:30</td>
+<td>Shared reimbursement meeting and program logistics</td>
+</tr>
+<tr class="even">
+<td>8:30-8:50</td>
+<td>Advanced pathway welcome, three-day plan, instructors, participant introductions</td>
+</tr>
+<tr class="odd">
+<td>8:50-10:15</td>
+<td>Python warm-up: variables, functions, arrays, and plotting</td>
+</tr>
+<tr class="even">
+<td>10:15-10:30</td>
+<td>Break</td>
+</tr>
+<tr class="odd">
+<td>10:30-12:00</td>
+<td>Loops, model updates, and simulation</td>
+</tr>
+<tr class="even">
+<td>12:00-1:00</td>
+<td>Lunch</td>
+</tr>
+<tr class="odd">
+<td>1:00-2:15</td>
+<td>Randomness, probability, and transition matrices</td>
+</tr>
+<tr class="even">
+<td>2:15-2:30</td>
+<td>Break</td>
+</tr>
+<tr class="odd">
+<td>2:30-3:45</td>
+<td>Likelihood, simulation, and Monte Carlo intuition</td>
+</tr>
+<tr class="even">
+<td>3:45-4:00</td>
+<td>Reflection and Day 2 preview</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="functions" class="level4">
-<h4 class="anchored" data-anchor-id="functions">Functions</h4>
-<p>Functions in Python are defined using the <code>def f(x):</code> syntax. The <code>def</code> indicates the following is a function and the variables inside the parantheses comprise the arguments. Python functions can have an arbitrary number of arguments and an arbitrary number of return values. Instead of curly braces, Python uses indentation to encapsulate the function’s code.</p>
-<div id="ca437738" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> <span class="dv">5</span>  <span class="co"># Variables can be assigned a constant value.</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining a function with a single argument</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The builtin function print can be used to print the value of a python object.</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we print the return value of f</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f(var))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> f  <span class="co"># Variables can hold any type, including functions</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(var(<span class="dv">6</span>))  <span class="co"># Calling the variable as a function</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>25
-36</code></pre>
-</div>
-</div>
-<div id="77224446" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python functions can have many arguments</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x, y, z):</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> z<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># And many returns</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(x, y, z):</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span>, y<span class="op">**</span><span class="dv">2</span>, z<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>var1, var2, var3 <span class="op">=</span> g(</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># Variables can be assigned using the return values of a function</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(var1, var2, var3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>12
-4 4 4</code></pre>
-</div>
+<section id="python-as-a-modeling-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="python-as-a-modeling-notebook">1. Python as a Modeling Notebook</h2>
+<p>Python notebooks let us mix explanation, code, results, and reflection. In this project, we will use Python to describe systems that change over time. The basic pattern will be:</p>
+<ol type="1">
+<li>choose a model state, such as the number of susceptible and infected people</li>
+<li>choose parameters, such as infection and recovery rates</li>
+<li>write an update rule</li>
+<li>repeat the update rule</li>
+<li>visualize and interpret the result</li>
+</ol>
+<div id="cell-3" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core libraries for Days 1 and 2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep plots readable in the notebook</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.figsize"</span>] <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">4</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"axes.grid"</span>] <span class="op">=</span> <span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="loops" class="level4">
-<h4 class="anchored" data-anchor-id="loops">Loops</h4>
-<p>Python’s loop syntax is similar to other C Style programming languages. The simplest loop uses <code>range(x)</code> with an integer argument <code>x</code>. The indented code block repeats <code>x</code> times. The variable <code>i</code> can be used to access the value of the counter. Note that in Python the loop counter starts at zero. Other Python objects can be looped over, but for now we will stick with <code>range</code>.</p>
-<div id="c4be68b7" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0
-1
-2
-3
-4
-5
-6
-7
-8
-9</code></pre>
+<section id="variables-expressions-and-types" class="level2">
+<h2 class="anchored" data-anchor-id="variables-expressions-and-types">2. Variables, Expressions, and Types</h2>
+<p>A variable stores a value so we can reuse it. In modeling, variables often represent parameters, initial conditions, or time steps.</p>
+<div id="cell-5" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>initial_infected <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>initial_susceptible <span class="op">=</span> population <span class="op">-</span> initial_infected</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>initial_recovered <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> <span class="fl">0.30</span>    <span class="co"># infection rate</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.10</span>   <span class="co"># recovery rate</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">1.0</span>       <span class="co"># one day per model step</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>initial_susceptible, initial_infected, initial_recovered</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<section id="exercise-1-read-and-modify-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1-read-and-modify-parameters">Exercise 1: Read and Modify Parameters</h3>
+<ol type="1">
+<li>Change <code>initial_infected</code> from 5 to 25.</li>
+<li>Recompute the susceptible group.</li>
+<li>Predict whether infections should rise faster or slower.</li>
+<li>Run the cell and compare your prediction with a neighbor.</li>
+</ol>
+<div id="cell-7" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 1 workspace</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>initial_infected <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>initial_susceptible <span class="op">=</span> population <span class="op">-</span> initial_infected</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>initial_recovered <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"S0 ="</span>, initial_susceptible)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I0 ="</span>, initial_infected)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R0 ="</span>, initial_recovered)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="lists-and-numpy-arrays" class="level4">
-<h4 class="anchored" data-anchor-id="lists-and-numpy-arrays">Lists and NumPy Arrays</h4>
-<p>Python implements an object called a list which can hold many values at once. Lists are useful for holding values computed in loops. To add a new value <code>x</code> to the end of a list we use the syntax <code>L.append(x)</code>. To select a value at a specific index of the list we use the syntax <code>L[i]</code> and to determine the length of the list we call <code>len(L)</code>.</p>
-<div id="88361a77" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> []  <span class="co"># Initializing an empty list</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">3</span>]  <span class="co"># A list can be initialized with values</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> <span class="bu">list</span>()  <span class="co"># Alternative way to initialize an empty list</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    L.append(i<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(L)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(L[<span class="dv">2</span>])</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(L))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
-4
-10</code></pre>
+</section>
+<section id="functions-for-model-rules" class="level2">
+<h2 class="anchored" data-anchor-id="functions-for-model-rules">3. Functions for Model Rules</h2>
+<p>A function lets us name a reusable calculation. Day 2 uses functions for the right-hand side of a differential equation. Day 3 uses functions for likelihoods and model simulators.</p>
+<div id="cell-9" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> new_infections(S, I, beta, population):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Expected new infections in one time step."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> beta <span class="op">*</span> S <span class="op">*</span> I <span class="op">/</span> population</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>new_infections(<span class="dv">995</span>, <span class="dv">5</span>, beta<span class="op">=</span><span class="fl">0.30</span>, population<span class="op">=</span><span class="dv">1000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div id="cell-10" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sir_one_step(S, I, R, beta, gamma, population, dt<span class="op">=</span><span class="fl">1.0</span>):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Advance a simple SIR model by one Euler step."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    infections <span class="op">=</span> beta <span class="op">*</span> S <span class="op">*</span> I <span class="op">/</span> population</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    recoveries <span class="op">=</span> gamma <span class="op">*</span> I</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    S_next <span class="op">=</span> S <span class="op">-</span> dt <span class="op">*</span> infections</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    I_next <span class="op">=</span> I <span class="op">+</span> dt <span class="op">*</span> infections <span class="op">-</span> dt <span class="op">*</span> recoveries</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    R_next <span class="op">=</span> R <span class="op">+</span> dt <span class="op">*</span> recoveries</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> S_next, I_next, R_next</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>sir_one_step(<span class="dv">995</span>, <span class="dv">5</span>, <span class="dv">0</span>, beta<span class="op">=</span><span class="fl">0.30</span>, gamma<span class="op">=</span><span class="fl">0.10</span>, population<span class="op">=</span><span class="dv">1000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We will however immediately turn away from Python lists because a Python package called NumPy implements a superior array object which offers speed improvements in computation and increased flexibility. Importing NumPy into our project is as simple as adding a statement at the top of our code cell <code>import numpy as np</code>. This adds NumPy to the project and makes it’s functions callable via the variable <code>np</code>.</p>
-<p>We will first discuss the NumPy array object. This is similar to the Python list with the same selection syntax. NumPy arrays have a property called shape that can be called using <code>arr.shape</code>. This tells us the shape of the array and can be viewed as an extension of the <code>len()</code> function for lists. Note the value of <code>.shape</code> is not a integer but rather a tuple (immutable list). This is because NumPy arrays can be multi-dimensional, which is their first great advantage over lists.</p>
-<p>We can access elements in multidimensional NumPy arrays using <code>arr[x,y]</code>, for example if <code>arr</code> is a 2x2 matrix. If <code>arr</code> is 1-dimensional the selection syntax is the same as the Python list.</p>
-<div id="df69288c" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])  <span class="co"># We create the array by</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># makicalling np.array on a python list.</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr)</span>
+<section id="exercise-2-function-checkpoint" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-function-checkpoint">Exercise 2: Function Checkpoint</h3>
+<p>The SIR step has two flows: susceptible people move into infected, and infected people move into recovered.</p>
+<ol type="1">
+<li>Increase <code>gamma</code> to 0.25. What changes?</li>
+<li>Decrease <code>beta</code> to 0.10. What changes?</li>
+<li>Check whether <code>S + I + R</code> stays equal to the total population.</li>
+</ol>
+<div id="cell-12" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 2 workspace</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>S1, I1, R1 <span class="op">=</span> sir_one_step(<span class="dv">995</span>, <span class="dv">5</span>, <span class="dv">0</span>, beta<span class="op">=</span><span class="fl">0.30</span>, gamma<span class="op">=</span><span class="fl">0.10</span>, population<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(S1, I1, R1)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total:"</span>, S1 <span class="op">+</span> I1 <span class="op">+</span> R1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="lists-and-numpy-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="lists-and-numpy-arrays">4. Lists and NumPy Arrays</h2>
+<p>A list stores multiple values. A NumPy array is better for numerical work because it supports vectorized mathematical operations and matrix multiplication.</p>
+<div id="cell-14" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>python_list <span class="op">=</span> [<span class="dv">995</span>, <span class="dv">5</span>, <span class="dv">0</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> np.array([<span class="fl">995.0</span>, <span class="fl">5.0</span>, <span class="fl">0.0</span>])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"List:"</span>, python_list)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Array:"</span>, state)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Array times 2:"</span>, state <span class="op">*</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cell-15" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">11</span>, <span class="dv">1</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>infected <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">20</span>, <span class="dv">24</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">33</span>])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.plot(time, infected, marker<span class="op">=</span><span class="st">"o"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Day"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number infected"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Example infection counts"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="exercise-3-plotting-checkpoint" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3-plotting-checkpoint">Exercise 3: Plotting Checkpoint</h3>
+<p>Use the workspace below to create a new plot.</p>
+<ol type="1">
+<li>Create a NumPy array called <code>recovered</code> with values that increase over time.</li>
+<li>Plot both <code>infected</code> and <code>recovered</code> on the same axes.</li>
+<li>Add a legend.</li>
+<li>Write one sentence interpreting the plot.</li>
+</ol>
+<div id="cell-17" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 3 workspace</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">11</span>, <span class="dv">1</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>infected <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">20</span>, <span class="dv">24</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">33</span>])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add recovered values here</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>recovered <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">23</span>])</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>multi_dim_arr <span class="op">=</span> np.zeros((<span class="dv">3</span>, <span class="dv">3</span>))  <span class="co"># np.zeros creates an array of zeros,</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># the argument (3,3) tells numpy to create a 3x3 array of zeros.</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(multi_dim_arr)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>multi_dim_arr <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">2</span>], [<span class="dv">2</span>, <span class="dv">2</span>]])  <span class="co"># You can also create numpy arrays by hand</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># using lists of lists, this creates a 2x2 array</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(multi_dim_arr.shape)</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(multi_dim_arr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1 2 3]
-(3,)
-[[0. 0. 0.]
- [0. 0. 0.]
- [0. 0. 0.]]
-(2, 2)
-[[2 2]
- [2 2]]</code></pre>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.plot(time, infected, marker<span class="op">=</span><span class="st">"o"</span>, label<span class="op">=</span><span class="st">"Infected"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.plot(time, recovered, marker<span class="op">=</span><span class="st">"s"</span>, label<span class="op">=</span><span class="st">"Recovered"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Day"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"People"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Two epidemic time series"</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+</section>
+<section id="loops-for-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="loops-for-simulation">5. Loops for Simulation</h2>
+<p>A simulation repeats a rule many times. The current state becomes the starting point for the next step. This is the core idea behind Euler’s method in Day 2.</p>
+<div id="cell-19" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_sir(days, S0, I0, R0, beta, gamma, population, dt<span class="op">=</span><span class="fl">1.0</span>):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    steps <span class="op">=</span> <span class="bu">int</span>(days <span class="op">/</span> dt)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.arange(steps <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> dt</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    states <span class="op">=</span> np.zeros((steps <span class="op">+</span> <span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    states[<span class="dv">0</span>] <span class="op">=</span> np.array([S0, I0, R0])</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(steps):</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        S, I, R <span class="op">=</span> states[k]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        states[k <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> sir_one_step(S, I, R, beta, gamma, population, dt)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> t, states</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>t, states <span class="op">=</span> simulate_sir(</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    days<span class="op">=</span><span class="dv">60</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    S0<span class="op">=</span><span class="dv">995</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    I0<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    R0<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    beta<span class="op">=</span><span class="fl">0.30</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    gamma<span class="op">=</span><span class="fl">0.10</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    population<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>states[:<span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>NumPy is extremely flexible and has numerous functions for creating and manipulating arrays. For example, we can operate on entire arrays at once to speed up computation. Various operations on arrays can be computed including means, standard deviations, and exponents.</p>
-<div id="f15a72bb" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])  <span class="co"># We create the array by calling np.array on a python list.</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">sum</span>(arr))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1 2 3]
-(3,)
-6</code></pre>
+<div id="cell-20" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.plot(t, states[:, <span class="dv">0</span>], label<span class="op">=</span><span class="st">"Susceptible"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.plot(t, states[:, <span class="dv">1</span>], label<span class="op">=</span><span class="st">"Infected"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.plot(t, states[:, <span class="dv">2</span>], label<span class="op">=</span><span class="st">"Recovered"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Day"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"People"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"SIR simulation"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<section id="exercise-4-simulation-lab" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4-simulation-lab">Exercise 4: Simulation Lab</h3>
+<p>This is a natural mid-morning break point.</p>
+<ol type="1">
+<li>Run the simulation with <code>beta = 0.20</code>, <code>0.30</code>, and <code>0.45</code>.</li>
+<li>For each value, record the peak number infected.</li>
+<li>Which parameter value produces the largest peak?</li>
+<li>How might a classroom connect this to public health decisions?</li>
+</ol>
+<div id="cell-22" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 4 workspace</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> beta_value <span class="kw">in</span> [<span class="fl">0.20</span>, <span class="fl">0.30</span>, <span class="fl">0.45</span>]:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    t, states <span class="op">=</span> simulate_sir(<span class="dv">60</span>, <span class="dv">995</span>, <span class="dv">5</span>, <span class="dv">0</span>, beta_value, <span class="fl">0.10</span>, <span class="dv">1000</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    peak_infected <span class="op">=</span> states[:, <span class="dv">1</span>].<span class="bu">max</span>()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    peak_day <span class="op">=</span> t[states[:, <span class="dv">1</span>].argmax()]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"beta=</span><span class="sc">{</span>beta_value<span class="sc">:.2f}</span><span class="ss">: peak infected=</span><span class="sc">{</span>peak_infected<span class="sc">:.1f}</span><span class="ss"> on day </span><span class="sc">{</span>peak_day<span class="sc">:.0f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>For 1-dimensional arrays this process is simple, however for higher dimensional arrays things become a bit more tricky. Consider a 2 dimensional array</p>
-<p><span class="math display">\[
-\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}.
-\]</span></p>
-<p>How do we take the sum of this matrix? We have 3 clear options, the sum of the rows, the sum of the columns, or the sum of all elements. NumPy can easily handle all of these cases but it is important to take care our operation is doing what we expect.</p>
-<div id="860bd455" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
+</section>
+</section>
+<section id="randomness-and-reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="randomness-and-reproducibility">6. Randomness and Reproducibility</h2>
+<p>Day 2 includes Markov chains, and Day 3 includes MCMC. Both depend on random choices. A random seed makes results reproducible.</p>
+<div id="cell-24" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>arr_row_sum <span class="op">=</span> np.<span class="bu">sum</span>(arr, axis<span class="op">=</span><span class="dv">0</span>)  <span class="co"># Sum of the rows</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr_row_sum)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr_row_sum.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>arr_col_sum <span class="op">=</span> np.<span class="bu">sum</span>(arr, axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># Sum of the columns</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr_col_sum)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr_col_sum.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>arr_sum <span class="op">=</span> np.<span class="bu">sum</span>(arr)  <span class="co"># Sum of the elements</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr_sum)</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr_sum.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(2, 2) 
-
-[4 6]
-(2,) 
-
-[3 7]
-(2,) 
-
-10
-()</code></pre>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>coin_flips <span class="op">=</span> rng.choice([<span class="st">"H"</span>, <span class="st">"T"</span>], size<span class="op">=</span><span class="dv">10</span>, p<span class="op">=</span>[<span class="fl">0.5</span>, <span class="fl">0.5</span>])</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>coin_flips</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div id="cell-25" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate whether each infected person recovers today.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>infected_people <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>recovery_probability <span class="op">=</span> <span class="fl">0.10</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>recoveries <span class="op">=</span> rng.binomial(n<span class="op">=</span>infected_people, p<span class="op">=</span>recovery_probability)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>recoveries</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="multiplication-in-numpy" class="level4">
-<h4 class="anchored" data-anchor-id="multiplication-in-numpy">Multiplication in NumPy</h4>
-<p>Performing multiplication of arrays is another nontrival operation. There are many ways to perform array multiplication and we will demonstrate a few below.</p>
-<div id="f86af843" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplication by scalar</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span> <span class="op">*</span> arr, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>arr_2 <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Element wise multiplication</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr <span class="op">*</span> arr_2, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix multiplication</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr <span class="op">@</span> arr_2, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)  </span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that matrix multiplication uses the @ operator</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(2, 2) 
-
-[[2 4]
- [6 8]] 
-
-[[ 1  4]
- [ 9 16]] 
-
-[[ 7 10]
- [15 22]] 
-</code></pre>
-</div>
+<section id="exercise-5-random-simulation-checkpoint" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5-random-simulation-checkpoint">Exercise 5: Random Simulation Checkpoint</h3>
+<ol type="1">
+<li>Change <code>recovery_probability</code> to 0.25.</li>
+<li>Run the simulation several times with different seeds.</li>
+<li>Why is the result not always the same?</li>
+<li>What does this suggest about interpreting one simulation run?</li>
+</ol>
+<div id="cell-27" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 5 workspace</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seed <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]:</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span>seed)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    recoveries <span class="op">=</span> rng.binomial(n<span class="op">=</span><span class="dv">20</span>, p<span class="op">=</span><span class="fl">0.10</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(seed, recoveries)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="other-useful-numpy-functions" class="level4">
-<h4 class="anchored" data-anchor-id="other-useful-numpy-functions">Other useful NumPy Functions</h4>
-<p>We will briefly mention some other useful functions in NumPy.</p>
-<p><code>np.arange(start,stop,step)</code> creates an array of values between start and stop with spacing step.</p>
-<div id="3ad07067" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>delta_t <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">10</span> <span class="op">+</span> delta_t, delta_t)</span>
+</section>
+<section id="transition-matrices-for-markov-chains" class="level2">
+<h2 class="anchored" data-anchor-id="transition-matrices-for-markov-chains">7. Transition Matrices for Markov Chains</h2>
+<p>A Markov chain describes transitions between states. The next state depends on the current state and a transition rule. Day 2 uses this idea more formally.</p>
+<p>Suppose a person can be in one of three states: Susceptible, Infected, or Recovered. The transition matrix below stores the one-day probabilities of moving between states.</p>
+<div id="cell-29" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rows are current states, columns are next states.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># State order: S, I, R</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.array([</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">0.92</span>, <span class="fl">0.08</span>, <span class="fl">0.00</span>],</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">0.00</span>, <span class="fl">0.85</span>, <span class="fl">0.15</span>],</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">0.00</span>, <span class="fl">0.00</span>, <span class="fl">1.00</span>],</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>initial_distribution <span class="op">=</span> np.array([<span class="fl">0.99</span>, <span class="fl">0.01</span>, <span class="fl">0.00</span>])</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>next_distribution <span class="op">=</span> initial_distribution <span class="op">@</span> T</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>next_distribution</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cell-30" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>distribution <span class="op">=</span> initial_distribution.copy()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> [distribution]</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[ 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.   1.1  1.2  1.3
-  1.4  1.5  1.6  1.7  1.8  1.9  2.   2.1  2.2  2.3  2.4  2.5  2.6  2.7
-  2.8  2.9  3.   3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.   4.1
-  4.2  4.3  4.4  4.5  4.6  4.7  4.8  4.9  5.   5.1  5.2  5.3  5.4  5.5
-  5.6  5.7  5.8  5.9  6.   6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  6.9
-  7.   7.1  7.2  7.3  7.4  7.5  7.6  7.7  7.8  7.9  8.   8.1  8.2  8.3
-  8.4  8.5  8.6  8.7  8.8  8.9  9.   9.1  9.2  9.3  9.4  9.5  9.6  9.7
-  9.8  9.9 10. ]</code></pre>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> day <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">30</span>):</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    distribution <span class="op">=</span> distribution <span class="op">@</span> T</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    history.append(distribution)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> np.array(history)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.plot(history[:, <span class="dv">0</span>], label<span class="op">=</span><span class="st">"S"</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.plot(history[:, <span class="dv">1</span>], label<span class="op">=</span><span class="st">"I"</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>plt.plot(history[:, <span class="dv">2</span>], label<span class="op">=</span><span class="st">"R"</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Day"</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Probability"</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Markov chain distribution over time"</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<p><code>np.reshape(arr,shape)</code> transform a NumPy array into a new shape. This can be useful for matrix multiplication. This can also be called using <code>arr.reshape(shape).</code></p>
-<div id="38af83b7" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.reshape(arr, (<span class="dv">4</span>,))  <span class="co"># Transforms arr into a flat array</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2]
- [3 4]] 
-
-(2, 2) 
-
-[1 2 3 4] 
-
-(4,) 
-</code></pre>
-</div>
-</div>
-<p><code>np.transpose(arr)</code> swaps the rows and columns of a matrix. This can also be called using <code>arr.T</code>.</p>
-<div id="c931e04c" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, <span class="dv">6</span>]])</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.transpose(arr)  <span class="co"># Transposes the array</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2]
- [3 4]
- [5 6]] 
-
-(3, 2) 
-
-[[1 3 5]
- [2 4 6]] 
-
-(2, 3) 
-</code></pre>
-</div>
-</div>
-<p>NumPy also implements various mathematical functions that operate over the entire array. For example, <code>np.exp</code> and <code>np.log</code>. These operations are applied element-wise to the array.</p>
-<div id="4ebf2217" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, <span class="dv">6</span>]])</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.shape, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.exp(arr))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2]
- [3 4]
- [5 6]] 
-
-(3, 2) 
-
-[[  2.71828183   7.3890561 ]
- [ 20.08553692  54.59815003]
- [148.4131591  403.42879349]]</code></pre>
-</div>
+<section id="exercise-6-transition-matrix-break" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6-transition-matrix-break">Exercise 6: Transition Matrix Break</h3>
+<ol type="1">
+<li>Check that each row of <code>T</code> adds to 1.</li>
+<li>Increase the probability of moving from susceptible to infected.</li>
+<li>Decrease the probability of staying infected.</li>
+<li>Replot the distributions and describe the change.</li>
+</ol>
+<div id="cell-32" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 6 workspace</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Row sums:"</span>, T.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>T_new <span class="op">=</span> np.array([</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">0.90</span>, <span class="fl">0.10</span>, <span class="fl">0.00</span>],</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">0.00</span>, <span class="fl">0.75</span>, <span class="fl">0.25</span>],</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">0.00</span>, <span class="fl">0.00</span>, <span class="fl">1.00</span>],</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"New row sums:"</span>, T_new.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="matplotlib" class="level4">
-<h4 class="anchored" data-anchor-id="matplotlib">Matplotlib</h4>
-<p>Matplotlib is another extremely useful Python package for plotting. This package allows us to visualize the results of various mathematical computations performed in NumPy. We import Matplotlib the same way as NumPy.</p>
-<div id="0e958045" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the data for our plot</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>step <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> np.arange(<span class="op">-</span>np.pi, np.pi <span class="op">+</span> step, step)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> np.sin(xs)</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Plot of $y=</span><span class="ch">\\</span><span class="st">sin(x)$"</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Matplotlib can plot points using the scatter function</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.pi <span class="op">/</span> <span class="dv">2</span>, <span class="fl">1.0</span>, label<span class="op">=</span><span class="st">"Maximum"</span>, color<span class="op">=</span><span class="st">"red"</span>, zorder<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span>np.pi <span class="op">/</span> <span class="dv">2</span>, <span class="op">-</span><span class="fl">1.0</span>, label<span class="op">=</span><span class="st">"Minimum"</span>, color<span class="op">=</span><span class="st">"green"</span>, zorder<span class="op">=</span><span class="dv">10</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># Zorder makes sure the dot is plotted on top of the line</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Matplotlib will interpolate a </span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co"># continuous curve from the points if you use plot</span></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>plt.plot(xs, ys, label<span class="op">=</span><span class="st">"Curve"</span>)</span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting horizontal and vertical lines</span></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, linestyle<span class="op">=</span><span class="st">"dashed"</span>)</span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span><span class="dv">0</span>, linestyle<span class="op">=</span><span class="st">"dashed"</span>)</span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding labels to our plot</span></span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"y"</span>)</span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a grid background</span></span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding the legend, this uses the label string </span></span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a><span class="co"># in scatter and plot to populate the legend</span></span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows the plot on the screen</span></span>
-<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Day1_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+</section>
+<section id="from-model-output-to-data" class="level2">
+<h2 class="anchored" data-anchor-id="from-model-output-to-data">8. From Model Output to Data</h2>
+<p>Real data are noisy. Day 3 asks: if the model has unknown parameters, which parameter values make the observed data most plausible?</p>
+<p>We will start with a simulated infected curve and add observation noise.</p>
+<div id="cell-34" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>t, true_states <span class="op">=</span> simulate_sir(<span class="dv">40</span>, <span class="dv">995</span>, <span class="dv">5</span>, <span class="dv">0</span>, beta<span class="op">=</span><span class="fl">0.30</span>, gamma<span class="op">=</span><span class="fl">0.10</span>, population<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>true_infected <span class="op">=</span> true_states[:, <span class="dv">1</span>]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>observed_infected <span class="op">=</span> rng.poisson(lam<span class="op">=</span>np.maximum(true_infected, <span class="fl">0.1</span>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>plt.plot(t, true_infected, label<span class="op">=</span><span class="st">"Model infected"</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(t, observed_infected, s<span class="op">=</span><span class="dv">20</span>, color<span class="op">=</span><span class="st">"black"</span>, label<span class="op">=</span><span class="st">"Noisy observations"</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Day"</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Infected people"</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Model output and noisy observations"</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="a-first-likelihood-score" class="level2">
+<h2 class="anchored" data-anchor-id="a-first-likelihood-score">9. A First Likelihood Score</h2>
+<p>A likelihood compares observed data with model predictions. A simple score is the sum of squared errors. Smaller values mean the model curve is closer to the observed data.</p>
+<p>This is not the full Bayesian likelihood used in Day 3, but it gives the right intuition: parameters are judged by how well their simulated output explains the data.</p>
+<div id="cell-36" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_infected_curve(beta, gamma<span class="op">=</span><span class="fl">0.10</span>):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    t, states <span class="op">=</span> simulate_sir(<span class="dv">40</span>, <span class="dv">995</span>, <span class="dv">5</span>, <span class="dv">0</span>, beta<span class="op">=</span>beta, gamma<span class="op">=</span>gamma, population<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> states[:, <span class="dv">1</span>]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> squared_error_score(beta, observed):</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    predicted <span class="op">=</span> simulate_infected_curve(beta)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>((observed <span class="op">-</span> predicted) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> beta_value <span class="kw">in</span> [<span class="fl">0.15</span>, <span class="fl">0.20</span>, <span class="fl">0.25</span>, <span class="fl">0.30</span>, <span class="fl">0.35</span>, <span class="fl">0.40</span>]:</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(beta_value, squared_error_score(beta_value, observed_infected))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div id="cell-37" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>beta_grid <span class="op">=</span> np.linspace(<span class="fl">0.10</span>, <span class="fl">0.50</span>, <span class="dv">81</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> np.array([squared_error_score(beta_value, observed_infected) <span class="cf">for</span> beta_value <span class="kw">in</span> beta_grid])</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>best_beta <span class="op">=</span> beta_grid[np.argmin(scores)]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.plot(beta_grid, scores)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.axvline(best_beta, color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="ss">f"best beta = </span><span class="sc">{</span>best_beta<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"beta"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"squared error score"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Parameter search by simulation"</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>best_beta</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Matplotlib has a variety of features for creating high quality visuals, the above example only covers the basics but these are sufficient for our plotting purposes.</p>
+<section id="exercise-7-inference-preview" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7-inference-preview">Exercise 7: Inference Preview</h3>
+<p>This is a natural afternoon break point.</p>
+<ol type="1">
+<li>Change the true data-generating value from <code>beta = 0.30</code> to another value.</li>
+<li>Regenerate the noisy observations.</li>
+<li>Run the grid search again.</li>
+<li>Does the best beta recover the true beta exactly? Why or why not?</li>
+</ol>
+<div id="cell-39" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 7 workspace</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>true_beta <span class="op">=</span> <span class="fl">0.30</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>_, true_states <span class="op">=</span> simulate_sir(<span class="dv">40</span>, <span class="dv">995</span>, <span class="dv">5</span>, <span class="dv">0</span>, beta<span class="op">=</span>true_beta, gamma<span class="op">=</span><span class="fl">0.10</span>, population<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>observed <span class="op">=</span> rng.poisson(lam<span class="op">=</span>np.maximum(true_states[:, <span class="dv">1</span>], <span class="fl">0.1</span>))</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>beta_grid <span class="op">=</span> np.linspace(<span class="fl">0.10</span>, <span class="fl">0.50</span>, <span class="dv">81</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> np.array([squared_error_score(beta_value, observed) <span class="cf">for</span> beta_value <span class="kw">in</span> beta_grid])</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"True beta:"</span>, true_beta)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Best beta:"</span>, beta_grid[np.argmin(scores)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="monte-carlo-thinking" class="level2">
+<h2 class="anchored" data-anchor-id="monte-carlo-thinking">10. Monte Carlo Thinking</h2>
+<p>Monte Carlo methods repeat random experiments many times. MCMC, used on Day 3, is a special Monte Carlo method that builds a Markov chain whose long-run behavior helps approximate a probability distribution.</p>
+<p>Before MCMC, we can practice with a simpler question: if the same epidemic model produces noisy data many times, how much does our best parameter estimate vary?</p>
+<div id="cell-41" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> estimate_beta_from_noisy_data(seed, true_beta<span class="op">=</span><span class="fl">0.30</span>):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span>seed)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    _, true_states <span class="op">=</span> simulate_sir(<span class="dv">40</span>, <span class="dv">995</span>, <span class="dv">5</span>, <span class="dv">0</span>, beta<span class="op">=</span>true_beta, gamma<span class="op">=</span><span class="fl">0.10</span>, population<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    observed <span class="op">=</span> rng.poisson(lam<span class="op">=</span>np.maximum(true_states[:, <span class="dv">1</span>], <span class="fl">0.1</span>))</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    beta_grid <span class="op">=</span> np.linspace(<span class="fl">0.10</span>, <span class="fl">0.50</span>, <span class="dv">81</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    scores <span class="op">=</span> np.array([squared_error_score(beta_value, observed) <span class="cf">for</span> beta_value <span class="kw">in</span> beta_grid])</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> beta_grid[np.argmin(scores)]</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>estimates <span class="op">=</span> np.array([estimate_beta_from_noisy_data(seed) <span class="cf">for</span> seed <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>)])</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>plt.hist(estimates, bins<span class="op">=</span><span class="dv">12</span>, edgecolor<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="fl">0.30</span>, color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"true beta"</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Estimated beta"</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of simulations"</span>)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Monte Carlo variation in beta estimates"</span>)</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean estimate:"</span>, estimates.mean())</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Standard deviation:"</span>, estimates.std())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="exercise-8-end-of-day-synthesis" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8-end-of-day-synthesis">Exercise 8: End-of-Day Synthesis</h3>
+<p>Work with a partner and answer these questions.</p>
+<ol type="1">
+<li>Which Python idea from today appears in the SIR notebook?</li>
+<li>Which Python idea from today appears in the Markov chains notebook?</li>
+<li>Which Python idea from today appears in the MCMC notebook?</li>
+<li>What is one classroom question you could ask using simulation?</li>
+<li>What part of Day 2 or Day 3 feels most important to review tomorrow?</li>
+</ol>
+</section>
+</section>
+<section id="day-2-preview" class="level2">
+<h2 class="anchored" data-anchor-id="day-2-preview">Day 2 Preview</h2>
+<p>Tomorrow we will use the same building blocks in a more formal way:</p>
+<ul>
+<li>arrays store model states</li>
+<li>functions define model dynamics</li>
+<li>loops and numerical solvers advance the model</li>
+<li>plots communicate how a system changes over time</li>
+<li>transition matrices describe stochastic movement between states</li>
+</ul>
+<p>Keep this notebook as a reference while working through the SIR, Euler method, and Markov chain materials.</p>
 
 
 </section>

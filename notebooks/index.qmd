@@ -1,15 +1,16 @@
 ---
-title: "Dynamical Systems"
+title: "Notebook Library"
 ---
 
-# Python Examples
+This page collects rendered notebook materials used by the advanced pathway. The Python notebooks are used for the Summer 2026 epidemic modeling project. The R Markdown file is included as a test format for future projects that may use R.
 
-### 1. [Intro to SIR models and Euler's Method](example_SIR.ipynb)
+## Summer 2026: Epidemic Modeling
 
-### 2. [Intro to Markov Chains](markov_chains.ipynb)
+1. [Day 1: Python Foundations for Modeling and Inference](../project_1/materials/Day1.ipynb)
+2. [Intro to SIR Models and Euler's Method](example_SIR.ipynb)
+3. [Intro to Markov Chains](markov_chains.ipynb)
+4. [Intro to MCMC and Inference for State Space Models](MCMC.ipynb)
 
-### 3. [Intro to MCMC and Inference for State Space Models](MCMC.ipynb)
+## Future Project Formats
 
-# R Examples
-
-### 1. [R markdown example file](example_R.Rmd)
+1. [R Markdown example file](example_R.Rmd)

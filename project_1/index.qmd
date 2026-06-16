@@ -1,9 +1,46 @@
 ---
-title: "Inference of Parameters of Dynamical Systems"
+title: "Advanced Project 1: Epidemic Modeling and Inference"
 ---
 
-### [Day 1 Notebook](materials/Day1.ipynb)
+Summer 2026 advanced pathway participants will use epidemic models as a context for learning how deterministic simulation, stochastic models, and Bayesian inference fit together.
 
-### [Day 2 Notebook](materials/Day2.ipynb)
+## Three-Day Plan
 
-### [Day 3 Notebook](materials/Day3.ipynb)
+::: {.schedule-list}
+::: {.schedule-item}
+### Day 1: Python Foundations for Modeling and Inference
+
+Set up Python habits needed for the rest of the project: variables, functions, arrays, plotting, loops, random simulation, transition matrices, and likelihood intuition.
+
+[Open Day 1 notebook](materials/Day1.ipynb)
+:::
+
+::: {.schedule-item}
+### Day 2: SIR Models, Euler's Method, and Markov Chains
+
+Move from repeated update rules to epidemic models and stochastic transitions.
+
+[SIR and Euler notebook](../notebooks/example_SIR.ipynb)  
+[Markov chains notebook](../notebooks/markov_chains.ipynb)
+:::
+
+::: {.schedule-item}
+### Day 3: MCMC and Inference for State Space Models
+
+Use simulation and probability ideas to estimate unknown model parameters from noisy observations.
+
+[MCMC notebook](../notebooks/MCMC.ipynb)
+:::
+:::
+
+## Additional Project Materials
+
+These files are kept for continuity with existing project materials and can be reorganized as the project grows.
+
+- [Existing Day 2 notebook](materials/Day2.ipynb)
+- [Project Day 3 notebook](materials/Day3.ipynb)
+- [Fictitious data CSV](fictious_data.csv)
+
+## Future Advanced Projects
+
+The advanced pathway is expected to include about five projects over time. This page is structured so additional project pages can be added without changing the overall site design.

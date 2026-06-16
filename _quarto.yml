@@ -2,17 +2,29 @@ project:
   type: website
 
 website:
-  title: "Education Test Site"
+  title: "Arizona Data Science Corps"
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - text: Pathways
+        menu:
+          - href: schedule/schedule_2026_intro.qmd
+            text: Introductory Pathway
+          - href: schedule/schedule_2026_int.qmd
+            text: Intermediate Pathway
+          - href: schedule/schedule_2026_advanced.qmd
+            text: Advanced Pathway
+      - href: project_1/index.qmd
+        text: Advanced Projects
+      - href: notebooks/index.qmd
+        text: Notebooks
+      - href: faculty_applications.qmd
+        text: Faculty Applications
       - href: about.qmd
         text: About
-      - href: notebooks/index.qmd
-        text: Demo Notebooks
     right: 
-        - href: https://github.com/Avery-s-Organization/EducationGrantSite
+        - href: https://github.com/AZDSC-NAU/AZDSC_NAU_SITE
           icon: github
           aria-label: GitHub
 

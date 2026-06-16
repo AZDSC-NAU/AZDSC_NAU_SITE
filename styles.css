@@ -1,1 +1,132 @@
 /* css styles */
+
+:root {
+  --azdsc-blue: #003466;
+  --azdsc-sky: #0078a8;
+  --azdsc-green: #4f7d3a;
+  --azdsc-gold: #d69b2d;
+  --azdsc-ink: #1f2933;
+  --azdsc-muted: #5d6875;
+  --azdsc-line: #d9e2ec;
+  --azdsc-panel: #f7fafc;
+}
+
+body {
+  color: var(--azdsc-ink);
+}
+
+a {
+  color: var(--azdsc-sky);
+}
+
+.navbar-title {
+  font-weight: 700;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid var(--azdsc-line);
+  margin-bottom: 1.5rem;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: var(--azdsc-blue);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--azdsc-muted);
+  max-width: 46rem;
+}
+
+.hero-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0.35rem 0.5rem 0.35rem 0;
+  padding: 0.65rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--azdsc-blue);
+  color: #fff;
+}
+
+.btn-secondary {
+  border: 1px solid var(--azdsc-blue);
+  color: var(--azdsc-blue);
+}
+
+.link-grid,
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.feature-card,
+.project-card,
+.schedule-item {
+  border: 1px solid var(--azdsc-line);
+  border-left: 4px solid var(--azdsc-sky);
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.feature-card h3,
+.project-card h3,
+.schedule-item h3 {
+  margin-top: 0;
+  color: var(--azdsc-blue);
+}
+
+.active-project {
+  border-left-color: var(--azdsc-gold);
+  background: var(--azdsc-panel);
+}
+
+.schedule-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.logo-row img {
+  max-height: 76px;
+  width: auto;
+  object-fit: contain;
+}
+
+table {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
