@@ -12,7 +12,7 @@ Summer 2026 advanced pathway participants will use epidemic models as a context 
 
 Set up Python habits needed for the rest of the project: variables, functions, arrays, plotting, loops, random simulation, transition matrices, and likelihood intuition.
 
-[Open Day 1 notebook](materials/Day1.ipynb)
+[Day 1 notebook](materials/Day1.ipynb)
 :::
 
 ::: {.schedule-item}
@@ -20,8 +20,7 @@ Set up Python habits needed for the rest of the project: variables, functions, a
 
 Move from repeated update rules to epidemic models and stochastic transitions.
 
-[SIR and Euler notebook](../notebooks/example_SIR.ipynb)  
-[Markov chains notebook](../notebooks/markov_chains.ipynb)
+[Day 2 notebook](materials/Day2.ipynb)  
 :::
 
 ::: {.schedule-item}
@@ -29,7 +28,7 @@ Move from repeated update rules to epidemic models and stochastic transitions.
 
 Use simulation and probability ideas to estimate unknown model parameters from noisy observations.
 
-[MCMC notebook](../notebooks/MCMC.ipynb)
+[Day 3 notebook](materials/Day3.ipynb)
 :::
 :::
 
@@ -37,8 +36,8 @@ Use simulation and probability ideas to estimate unknown model parameters from n
 
 These files are kept for continuity with existing project materials and can be reorganized as the project grows.
 
-- [Existing Day 2 notebook](materials/Day2.ipynb)
-- [Project Day 3 notebook](materials/Day3.ipynb)
+- [Introduction to Markov Chains](materials/markov_chains.ipynb)
+- [Introduction to MCMC](materials/MCMC.ipynb)
 - [Fictitious data CSV](fictious_data.csv)
 
 ## Future Advanced Projects
