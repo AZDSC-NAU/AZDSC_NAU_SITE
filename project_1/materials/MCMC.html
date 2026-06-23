@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title> An Introduction To MCMC and Bayesian Inference  – Education Test Site</title>
+<title> An Introduction To MCMC and Bayesian Inference  – Arizona Data Science Corps</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -61,23 +61,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bba5ebae505b5c03f3f0d8040a416a6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -136,7 +136,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -146,8 +146,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Education Test Site</span>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Arizona Data Science Corps</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -157,21 +157,25 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../project_1/index.html"> 
+<span class="menu-text">Advanced Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../notebooks/index.html"> 
-<span class="menu-text">Demo Notebooks</span></a>
+    <a class="nav-link" href="../../faculty_applications.html"> 
+<span class="menu-text">DS Applications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Avery-s-Organization/EducationGrantSite"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/AZDSC-NAU/AZDSC_NAU_SITE"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -398,8 +402,8 @@ P(\theta|Y_{1:t}) = \frac{P(Y_{1:t}|\theta)P(\theta)}{P(Y_{1:t})}
 <p>We build a Markov chain <span class="math inline">\({\theta_{0}, \theta_{1},\dots, \theta_{N-1}}\)</span> targeting the posterior.</p>
 <section id="algorithm" class="level3">
 <h3 class="anchored" data-anchor-id="algorithm">Algorithm</h3>
-<p><strong>Initialize</strong> 1. Draw initial sample from prior: - <span class="math inline">\(\theta_{0}\)</span> ~ Normal(0, <span class="math inline">\(\tau^2\)</span>) 2. Compute: - <span class="math inline">\(L_{\theta_{0}}\)</span> ← LOG_POSTERIOR(<span class="math inline">\(\theta_{0}\)</span>) 3. Store: - <code>thetas = [θ₀]</code> - <code>LL = [L₀]</code> - <code>acceptances = []</code></p>
-<p><strong>For</strong> <span class="math inline">\(k = 1, 2,\dots, N−1\)</span>: 1. <strong>Propose</strong> (random-walk): - <span class="math inline">\(\theta^*\)</span> ← <span class="math inline">\(\theta_{k−1}\)</span> + s · Normal(0,1) 2. <strong>Compute</strong> proposed log posterior: - <span class="math inline">\(L^{*}\)</span> ← LOG_POSTERIOR(<span class="math inline">\(\theta^{*}\)</span>) 3. <strong>Acceptance log-ratio</strong> (symmetric proposal ⇒ no proposal terms): - <span class="math inline">\(\alpha\)</span> ← <span class="math inline">\(L^{*}\)</span> − <span class="math inline">\(L_{k−1}\)</span> 4. <strong>Accept/Reject</strong> - Draw u ~ Uniform(0,1) - If <span class="math inline">\(log(u) &lt; \alpha\)</span>: - <span class="math inline">\(\theta_k\)</span> ← <span class="math inline">\(\theta^*\)</span> - <span class="math inline">\(L_k\)</span> ← <span class="math inline">\(L^{*}\)</span> - append 1 to <code>acceptances</code> - Else: - <span class="math inline">\(\theta_k\)</span> ← <span class="math inline">\(\theta_{k−1}\)</span> - <span class="math inline">\(L_k\)</span> ← <span class="math inline">\(L_{k−1}\)</span> - append 0 to <code>acceptances</code> 5. Append <span class="math inline">\(\theta_k\)</span> to <code>thetas</code> and <span class="math inline">\(L_k\)</span> to <code>LL</code> 6. (Optional) Print diagnostics: - acceptance_rate = mean(acceptances) - current μ estimate = <span class="math inline">\(\exp(\theta_k)\)</span></p>
+<p><strong>Initialize</strong> 1. Draw initial sample from prior: - <span class="math inline">\(\theta_{0} \sim\)</span> Normal(0, <span class="math inline">\(\tau^2\)</span>) 2. Compute: - <span class="math inline">\(L_{\theta_{0}}\)</span> ← LOG_POSTERIOR(<span class="math inline">\(\theta_{0}\)</span>) 3. Store: - <code>thetas = [θ₀]</code> - <code>LL = [L₀]</code> - <code>acceptances = []</code></p>
+<p><strong>For</strong> <span class="math inline">\(k = 1, 2,\dots, N−1\)</span>: 1. <strong>Propose</strong> (random-walk): - <span class="math inline">\(\theta^*\)</span> ← <span class="math inline">\(\theta_{k−1}\)</span> + s · Normal(0,1) 2. <strong>Compute</strong> proposed log posterior: - <span class="math inline">\(L^{*}\)</span> ← LOG_POSTERIOR(<span class="math inline">\(\theta^{*}\)</span>) 3. <strong>Acceptance log-ratio</strong> (symmetric proposal ⇒ no proposal terms): - <span class="math inline">\(\alpha\)</span> ← <span class="math inline">\(L^{*}\)</span> − <span class="math inline">\(L_{k−1}\)</span> 4. <strong>Accept/Reject</strong> - Draw u <span class="math inline">\(\sim\)</span> Uniform(0,1) - If <span class="math inline">\(\log(u) &lt; \alpha\)</span>: - <span class="math inline">\(\theta_k\)</span> ← <span class="math inline">\(\theta^*\)</span> - <span class="math inline">\(L_k\)</span> ← <span class="math inline">\(L^{*}\)</span> - append 1 to <code>acceptances</code> - Else: - <span class="math inline">\(\theta_k\)</span> ← <span class="math inline">\(\theta_{k−1}\)</span> - <span class="math inline">\(L_k\)</span> ← <span class="math inline">\(L_{k−1}\)</span> - append 0 to <code>acceptances</code> 5. Append <span class="math inline">\(\theta_k\)</span> to <code>thetas</code> and <span class="math inline">\(L_k\)</span> to <code>LL</code> 6. (Optional) Print diagnostics: - acceptance_rate = mean(acceptances) - current μ estimate = <span class="math inline">\(\exp(\theta_k)\)</span></p>
 <p><strong>End For</strong></p>
 <div id="39dfaaef" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="55f08136-b763-4bd5-a28c-3ebbbb5f9b64" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>thetas <span class="op">=</span> []</span>
@@ -658,7 +662,7 @@ P(\theta|Y_{1:t}) = \frac{P(Y_{1:t}|\theta)P(\theta)}{P(Y_{1:t})}
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/AZDSC-NAU\.github\.io\/AZDSC_NAU_SITE\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
