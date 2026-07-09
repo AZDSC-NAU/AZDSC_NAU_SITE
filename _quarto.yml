@@ -11,6 +11,7 @@ project:
   resources:
     - "project_1/materials/*.ipynb"
     - "project_1/materials/*.pptx"
+    - "project_1/materials/*.pdf"
     - "project_1/materials/AZ_DATA.csv"
     - "project_1/fictious_data.csv"
 
