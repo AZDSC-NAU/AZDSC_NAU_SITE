@@ -88,7 +88,7 @@
     "href": "schedule/schedule_2026_advanced.html#day-2-dynamical-systems-epidemic-models-loss-functions-and-optimization",
     "title": "Advanced Pathway Daily Schedule: Summer 2026",
     "section": "Day 2: Dynamical Systems, Epidemic Models, Loss Functions, and Optimization",
-    "text": "Day 2: Dynamical Systems, Epidemic Models, Loss Functions, and Optimization\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:15\nReview of Day 1 ideas: arrays, graphs, regression, probability, and model-output thinking. Slides. (Ye)\n\n\n8:15-10:30\nDynamical systems: discrete vs. continuous growth, Euler’s method, logistic growth, and short modify-and-plot exercises. Notebook / Solutions. (Ye)\n\n\n10:30-10:45\nBreak\n\n\n10:45-12:00\nMulti-dimensional systems and epidemic models: Lotka-Volterra, SIS, SIR, SIRS/SIHR diagrams, and classroom visualization pauses. Notebook / Solutions. (Ely)\n\n\n12:00-1:00\nLunch\n\n\n1:00-2:15\nParameter inference: data simulation, data visualization, MSE loss functions, grid search, and loss-surface interpretation. Notebook / Solutions. (Ye)\n\n\n2:15-2:30\nBreak\n\n\n2:30-3:45\nOptimization: gradient descent intuition, automatic differentiation with JAX, and fitting parameters with gradients. Notebook / Solutions. (Avery)\n\n\n3:45-4:00\nReflection. (Ye)"
+    "text": "Day 2: Dynamical Systems, Epidemic Models, Loss Functions, and Optimization\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:15\nReview of Day 1 ideas: arrays, graphs, regression, probability, and model-output thinking. Slides. (Ye)\n\n\n8:15-10:15\nDynamical systems: discrete vs. continuous growth, Euler’s method, logistic growth, and short modify-and-plot exercises. Notebook / Solutions. (Ye)\n\n\n10:15-10:30\nBreak\n\n\n10:30-11:30\nGroup discussion: AI in teaching, learning, and everyday practice. Discussion notes.\n\n\n11:30-12:00\nMulti-dimensional systems and epidemic models: Lotka-Volterra, SIS, SIR, SIRS/SIHR diagrams, and classroom visualization pauses. Notebook / Solutions. (Ely)\n\n\n12:00-1:00\nLunch\n\n\n1:00-2:15\nParameter inference: data simulation, data visualization, MSE loss functions, grid search, and loss-surface interpretation. Notebook / Solutions. (Ye)\n\n\n2:15-2:30\nBreak\n\n\n2:30-3:45\nOptimization: gradient descent intuition, automatic differentiation with JAX, and fitting parameters with gradients. Notebook / Solutions. (Avery)\n\n\n3:45-4:00\nReflection. (Ye)"
   },
   {
     "objectID": "schedule/schedule_2026_advanced.html#day-3-fitting-models-to-data-uncertainty-and-classroom-adaptation",
@@ -98,46 +98,18 @@
     "text": "Day 3: Fitting Models to Data, Uncertainty, and Classroom Adaptation\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:20\nReview: simulation, visualization, probability, loss functions, and parameter meaning. (Ye)\n\n\n8:20-10:15\nReal data workflow: Arizona influenza hospitalization data, rolling averages, likelihood intuition, random walks, and connections to parameter fitting. Notebook / Solutions. (Ye)\n\n\n10:15-10:30\nBreak\n\n\n10:30-12:00\nModel checking and uncertainty: residual plots, best-parameter tables, simple MCMC sampler, trace plots, and posterior visualization. Notebook / Solutions. (Avery)\n\n\n12:00-1:00\nLunch\n\n\n1:00-3:00\nDataJam and classroom connections: participants adapt one dataset/model into a lesson, including a student question, graph, and interpretation prompt.\n\n\n3:00-4:00\nFinal research gathering and Community of Practice info. (Main room with Intro pathway)"
   },
   {
-    "objectID": "notebooks/index.html",
-    "href": "notebooks/index.html",
-    "title": "Notebook Library",
+    "objectID": "project_1/index.html",
+    "href": "project_1/index.html",
+    "title": "Advanced Pathway Materials",
     "section": "",
-    "text": "The daily schedule is the primary entry point for the Summer 2026 advanced pathway notebooks.\nOpen the daily schedule"
+    "text": "Summer 2026 advanced pathway participants will use epidemic models as a context for learning how deterministic simulation, optimization, stochastic models, and Bayesian inference fit together."
   },
   {
-    "objectID": "notebooks/index.html#summer-2026-epidemic-modeling",
-    "href": "notebooks/index.html#summer-2026-epidemic-modeling",
-    "title": "Notebook Library",
-    "section": "Summer 2026: Epidemic Modeling",
-    "text": "Summer 2026: Epidemic Modeling\n\n\n\nSession\nParticipant notebook\nSolution notebook\n\n\n\n\nDay 2 Session 1: Dynamical Systems\nNotebook\nSolutions\n\n\nDay 2 Session 2: SIR Models\nNotebook\nSolutions\n\n\nDay 2 Session 3: Grid Search\nNotebook\nSolutions\n\n\nDay 2 Session 4: Optimization\nNotebook\nSolutions\n\n\nDay 3 Session 1: Likelihood and Random Walk\nNotebook\nSolutions\n\n\nDay 3 Session 2: MCMC with Real Data\nNotebook\nSolutions"
-  },
-  {
-    "objectID": "faculty_applications.html",
-    "href": "faculty_applications.html",
-    "title": "Faculty Data Science Applications",
-    "section": "",
-    "text": "This page is a home for short data science applications contributed by university faculty. Each application can be written as a compact case study with a dataset, notebook, classroom question, and suggested extension."
-  },
-  {
-    "objectID": "faculty_applications.html#showcase-template",
-    "href": "faculty_applications.html#showcase-template",
-    "title": "Faculty Data Science Applications",
-    "section": "Showcase Template",
-    "text": "Showcase Template\n\nApplication Title\nFaculty area: Discipline or department\nData source: Link to dataset or public data description\nClassroom question: A short question students can investigate\nMaterials: Notebook, worksheet, slide deck, or activity guide\nAdaptation notes: Ideas for introductory, intermediate, and advanced learners"
-  },
-  {
-    "objectID": "faculty_applications.html#coming-examples",
-    "href": "faculty_applications.html#coming-examples",
-    "title": "Faculty Data Science Applications",
-    "section": "Coming Examples",
-    "text": "Coming Examples\n\n\nEnvironmental Data\nPlaceholder for a faculty example using environmental or climate data.\n\n\nPublic Health Data\nPlaceholder for a faculty example using health, epidemiology, or community data.\n\n\nEducation Data\nPlaceholder for a faculty example using classroom, assessment, or learning data."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "objectID": "project_1/index.html#daily-schedule",
+    "href": "project_1/index.html#daily-schedule",
+    "title": "Advanced Pathway Materials",
+    "section": "Daily Schedule",
+    "text": "Daily Schedule\nThe daily schedule is the main entry point for workshop materials. Participant notebooks and solution notebooks are linked from each session.\nOpen the daily schedule"
   },
   {
     "objectID": "index.html",
@@ -182,18 +154,102 @@
     "text": "Support\nThis project is funded by NSF 2436761, which supports data science education and training to build a strong national data science infrastructure and workforce. Additionally, This project is co-funded by the Innovative Technology Experiences for Students and Teachers (ITEST) program, which supports projects that build understandings of practices, program elements, contexts and processes contributing to increasing students’ knowledge and interest in science, technology, engineering, and mathematics (STEM) and information and communication technology (ICT) careers."
   },
   {
-    "objectID": "project_1/index.html",
-    "href": "project_1/index.html",
-    "title": "Advanced Pathway Materials",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Summer 2026 advanced pathway participants will use epidemic models as a context for learning how deterministic simulation, optimization, stochastic models, and Bayesian inference fit together."
+    "text": "About this site"
   },
   {
-    "objectID": "project_1/index.html#daily-schedule",
-    "href": "project_1/index.html#daily-schedule",
-    "title": "Advanced Pathway Materials",
-    "section": "Daily Schedule",
-    "text": "Daily Schedule\nThe daily schedule is the main entry point for workshop materials. Participant notebooks and solution notebooks are linked from each session.\nOpen the daily schedule"
+    "objectID": "faculty_applications.html",
+    "href": "faculty_applications.html",
+    "title": "Faculty Data Science Applications",
+    "section": "",
+    "text": "This page is a home for short data science applications contributed by university faculty. Each application can be written as a compact case study with a dataset, notebook, classroom question, and suggested extension."
+  },
+  {
+    "objectID": "faculty_applications.html#showcase-template",
+    "href": "faculty_applications.html#showcase-template",
+    "title": "Faculty Data Science Applications",
+    "section": "Showcase Template",
+    "text": "Showcase Template\n\nApplication Title\nFaculty area: Discipline or department\nData source: Link to dataset or public data description\nClassroom question: A short question students can investigate\nMaterials: Notebook, worksheet, slide deck, or activity guide\nAdaptation notes: Ideas for introductory, intermediate, and advanced learners"
+  },
+  {
+    "objectID": "faculty_applications.html#coming-examples",
+    "href": "faculty_applications.html#coming-examples",
+    "title": "Faculty Data Science Applications",
+    "section": "Coming Examples",
+    "text": "Coming Examples\n\n\nEnvironmental Data\nPlaceholder for a faculty example using environmental or climate data.\n\n\nPublic Health Data\nPlaceholder for a faculty example using health, epidemiology, or community data.\n\n\nEducation Data\nPlaceholder for a faculty example using classroom, assessment, or learning data."
+  },
+  {
+    "objectID": "notebooks/index.html",
+    "href": "notebooks/index.html",
+    "title": "Notebook Library",
+    "section": "",
+    "text": "The daily schedule is the primary entry point for the Summer 2026 advanced pathway notebooks.\nOpen the daily schedule"
+  },
+  {
+    "objectID": "notebooks/index.html#summer-2026-epidemic-modeling",
+    "href": "notebooks/index.html#summer-2026-epidemic-modeling",
+    "title": "Notebook Library",
+    "section": "Summer 2026: Epidemic Modeling",
+    "text": "Summer 2026: Epidemic Modeling\n\n\n\nSession\nParticipant notebook\nSolution notebook\n\n\n\n\nDay 2 Session 1: Dynamical Systems\nNotebook\nSolutions\n\n\nDay 2 Session 2: SIR Models\nNotebook\nSolutions\n\n\nDay 2 Session 3: Grid Search\nNotebook\nSolutions\n\n\nDay 2 Session 4: Optimization\nNotebook\nSolutions\n\n\nDay 3 Session 1: Likelihood and Random Walk\nNotebook\nSolutions\n\n\nDay 3 Session 2: MCMC with Real Data\nNotebook\nSolutions"
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html",
+    "href": "schedule/ai_group_discussion.html",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "",
+    "text": "During the group discussion, K-16 teachers shared experiences, concerns, and ideas about using AI in teaching, learning, and everyday work. The following itemized summary captures the key points from the discussion."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#ai-as-a-tool-for-teaching",
+    "href": "schedule/ai_group_discussion.html#ai-as-a-tool-for-teaching",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "AI as a Tool for Teaching",
+    "text": "AI as a Tool for Teaching\n\nDeveloping lesson plans aligned with district and curriculum standards.\nCreating classroom activities, worksheets, quizzes, and test questions.\nDesigning mathematical problems for different grade levels.\nPreparing materials for large classroom projects.\nDrafting emails and other routine communications.\nGenerating answer keys and checking solutions.\nBrainstorming ideas for classroom activities.\nSupporting data science and interdisciplinary projects.\nFinding and organizing instructional resources."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#ai-as-a-learning-tool-for-students",
+    "href": "schedule/ai_group_discussion.html#ai-as-a-learning-tool-for-students",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "AI as a Learning Tool for Students",
+    "text": "AI as a Learning Tool for Students\n\nObtaining explanations of difficult concepts.\nSummarizing information.\nReceiving study support outside the classroom.\nBrainstorming ideas for assignments.\nImproving productivity while learning."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#suggested-practices-for-students",
+    "href": "schedule/ai_group_discussion.html#suggested-practices-for-students",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Suggested Practices for Students",
+    "text": "Suggested Practices for Students\n\nEncouraging students to reflect on AI-generated responses.\nUsing AI to generate ideas instead of completing assignments.\nAsking students to verify and revise AI outputs independently.\nTeaching students how to use AI responsibly and ethically."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#ethical-and-responsible-use-of-ai",
+    "href": "schedule/ai_group_discussion.html#ethical-and-responsible-use-of-ai",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Ethical and Responsible Use of AI",
+    "text": "Ethical and Responsible Use of AI\n\nConsidering when AI is an appropriate tool.\nUnderstanding the limitations of AI.\nVerifying AI-generated information.\nAddressing academic integrity and responsible use."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#concerns-about-ai",
+    "href": "schedule/ai_group_discussion.html#concerns-about-ai",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Concerns About AI",
+    "text": "Concerns About AI\n\nStudents may become overly dependent on AI.\nAI may reduce opportunities to develop multi-step reasoning and problem-solving skills.\nSome students may skip the productive struggle that is essential for learning.\nAI can reproduce biases found in training data.\nAI-generated information is not always correct.\nUsers need to evaluate AI outputs critically rather than accepting them automatically.\nAI misuse in education remains a concern.\nThe relationship between AI use and student learning outcomes needs continued attention.\nThe impact of AI on reading, mathematics, and critical thinking skills should be watched carefully."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#preparing-students-for-the-future",
+    "href": "schedule/ai_group_discussion.html#preparing-students-for-the-future",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Preparing Students for the Future",
+    "text": "Preparing Students for the Future\n\nDevelop curiosity as a way to prepare for the impact of AI.\nLearn effective prompting techniques.\nUnderstand both the strengths and limitations of AI.\nTransform awareness of AI into meaningful classroom applications.\nUse AI as a partner for learning instead of a replacement for thinking."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#closing-reflection",
+    "href": "schedule/ai_group_discussion.html#closing-reflection",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Closing Reflection",
+    "text": "Closing Reflection\nThe group concluded that AI may represent a technological shift similar to the introduction of calculators and graphing calculators in mathematics education. Educational policies and classroom practices are still adapting to this rapidly changing technology. The discussion ended with a shared belief that curiosity remains the driving force behind meaningful learning."
   },
   {
     "objectID": "schedule/schedule_2026_int.html",
