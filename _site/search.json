@@ -81,14 +81,14 @@
     "href": "schedule/schedule_2026_advanced.html#day-1-python-foundations-visualization-probability-regression-and-deep-learning",
     "title": "Advanced Pathway Daily Schedule: Summer 2026",
     "section": "Day 1: Python Foundations, Visualization, Probability, Regression, and Deep Learning",
-    "text": "Day 1: Python Foundations, Visualization, Probability, Regression, and Deep Learning\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:45\nShared reimbursement meeting and program logistics. (Main room with Intro pathway)\n\n\n8:45-9:10\nAdvanced pathway welcome: three-day goals, participant introductions, coding comfort check, and Google Colab set up. Intro slides. (Ye)\n\n\n9:10-10:00\nPython notebook basics: variables, expressions, functions, NumPy arrays, first plots, short parameter-change exercises. Notebook / Solutions. (Ely)\n\n\n10:00-10:15\nBreak\n\n\n10:15-11:45\nSimulation foundations: Pandas, loops, functions, and more plots using the same Python basics notebook. Notebook / Solutions. (Ely)\n\n\n11:45-12:45\nLunch\n\n\n12:45-2:35\nStatistics package tour: scipy.stats probability functions, normal examples, regression analysis, logistic regression. Notebook. (Jaechoul)\n\n\n2:35-2:50\nBreak\n\n\n2:50-3:45\nRegression and deep learning package session: classroom-style regression with scikit-learn, residual plots, PyTorch tensors, and a deep neural network training loop in PyTorch. Notebook. (Jaechoul)\n\n\n3:45-4:00\nReflection. (Ye)"
+    "text": "Day 1: Python Foundations, Visualization, Probability, Regression, and Deep Learning\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:45\nShared reimbursement meeting and program logistics. (Main room with Intro pathway)\n\n\n8:45-9:10\nAdvanced pathway welcome: three-day goals, participant introductions, coding comfort check, and Google Colab set up. Intro slides. (Ye)\n\n\n9:10-10:00\nPython notebook basics: variables, expressions, functions, NumPy arrays, first plots, short parameter-change exercises. Notebook / Solutions. (Ely)\n\n\n10:00-10:15\nBreak\n\n\n10:15-11:45\nSimulation foundations: Pandas, loops, functions, and more plots using the same Python basics notebook. Notebook / Solutions. (Ely)\n\n\n11:45-12:45\nLunch\n\n\n12:45-2:35\nStatistics package tour: scipy.stats probability functions, normal examples, regression analysis, logistic regression. Slides / Notebook / Exercise. (Jaechoul)\n\n\n2:35-2:50\nBreak\n\n\n2:50-3:45\nRegression and deep learning package session: classroom-style regression with scikit-learn, residual plots, PyTorch tensors, and a deep neural network training loop in PyTorch. Slides / Notebook / Exercise. (Jaechoul)\n\n\n3:45-4:00\nReflection. (Ye)"
   },
   {
     "objectID": "schedule/schedule_2026_advanced.html#day-2-dynamical-systems-epidemic-models-loss-functions-and-optimization",
     "href": "schedule/schedule_2026_advanced.html#day-2-dynamical-systems-epidemic-models-loss-functions-and-optimization",
     "title": "Advanced Pathway Daily Schedule: Summer 2026",
     "section": "Day 2: Dynamical Systems, Epidemic Models, Loss Functions, and Optimization",
-    "text": "Day 2: Dynamical Systems, Epidemic Models, Loss Functions, and Optimization\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:15\nReview of Day 1 ideas: arrays, graphs, regression, probability, and model-output thinking. (Ye)\n\n\n8:15-10:30\nDynamical systems: discrete vs. continuous growth, Euler’s method, logistic growth, and short modify-and-plot exercises. Notebook / Solutions. (Ye)\n\n\n10:30-10:45\nBreak\n\n\n10:45-12:00\nMulti-dimensional systems and epidemic models: Lotka-Volterra, SIS, SIR, SIRS/SIHR diagrams, and classroom visualization pauses. Notebook / Solutions. (Ely)\n\n\n12:00-1:00\nLunch\n\n\n1:00-2:15\nParameter inference: data simulation, data visualization, MSE loss functions, grid search, and loss-surface interpretation. Notebook / Solutions. (Ye)\n\n\n2:15-2:30\nBreak\n\n\n2:30-3:45\nOptimization: gradient descent intuition, automatic differentiation with JAX, and fitting parameters with gradients. Notebook / Solutions. (Avery)\n\n\n3:45-4:00\nReflection. (Ye)"
+    "text": "Day 2: Dynamical Systems, Epidemic Models, Loss Functions, and Optimization\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:15\nReview of Day 1 ideas: arrays, graphs, regression, probability, and model-output thinking. Slides. (Ye)\n\n\n8:15-10:15\nDynamical systems: discrete vs. continuous growth, Euler’s method, logistic growth, and short modify-and-plot exercises. Notebook / Solutions. (Ye)\n\n\n10:15-10:30\nBreak\n\n\n10:30-11:30\nGroup discussion: AI in teaching, learning, and everyday practice. Discussion notes.\n\n\n11:30-12:00\nMulti-dimensional systems and epidemic models: Lotka-Volterra, SIS, SIR, SIRS/SIHR diagrams, and classroom visualization pauses. Notebook / Solutions. (Ely)\n\n\n12:00-1:00\nLunch\n\n\n1:00-2:15\nParameter inference: data simulation, data visualization, MSE loss functions, grid search, and loss-surface interpretation. Notebook / Solutions. (Ye)\n\n\n2:15-2:30\nBreak\n\n\n2:30-3:45\nOptimization: gradient descent intuition, automatic differentiation with JAX, and fitting parameters with gradients. Notebook / Solutions. (Avery)\n\n\n3:45-4:00\nReflection. (Ye)"
   },
   {
     "objectID": "schedule/schedule_2026_advanced.html#day-3-fitting-models-to-data-uncertainty-and-classroom-adaptation",
@@ -278,5 +278,61 @@
     "title": "Arizona Data Science Corps",
     "section": "Questions",
     "text": "Questions\nThe following are a few questions I encountered along the way that might interest others. ### Annoying &lt;br/&gt;’s Question: I asked on the Rstudio discussion site: Why does Markdown to HTML insert &lt;br/&gt; on new lines?\nAnswer: I just do a find and delete on this text for now.\n\nTemporarily disable caching\nQuestion: I asked on StackOverflow about How to set cache=FALSE for a knitr markdown document and override code chunk settings?\nAnswer: Delete the cache folder. But there are other possible workflows.\n\n\nEquivalent of Sexpr\nQuestion: I asked on Stack Overvlow about whether there an R Markdown equivalent to Sexpr in Sweave?.\nAnswer: Include the code between brackets of “backick r space” and “backtick”. E.g., in the source code I have calculated 2 + 2 = 4 ."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html",
+    "href": "schedule/ai_group_discussion.html",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "",
+    "text": "During the group discussion, K-16 teachers shared experiences, concerns, and ideas about using AI in teaching, learning, and everyday work. The following itemized summary captures the key points from the discussion."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#ai-as-a-tool-for-teaching",
+    "href": "schedule/ai_group_discussion.html#ai-as-a-tool-for-teaching",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "AI as a Tool for Teaching",
+    "text": "AI as a Tool for Teaching\n\nDeveloping lesson plans aligned with district and curriculum standards.\nCreating classroom activities, worksheets, quizzes, and test questions.\nDesigning mathematical problems for different grade levels.\nPreparing materials for large classroom projects.\nDrafting emails and other routine communications.\nGenerating answer keys and checking solutions.\nBrainstorming ideas for classroom activities.\nSupporting data science and interdisciplinary projects.\nFinding and organizing instructional resources."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#ai-as-a-learning-tool-for-students",
+    "href": "schedule/ai_group_discussion.html#ai-as-a-learning-tool-for-students",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "AI as a Learning Tool for Students",
+    "text": "AI as a Learning Tool for Students\n\nObtaining explanations of difficult concepts.\nSummarizing information.\nReceiving study support outside the classroom.\nBrainstorming ideas for assignments.\nImproving productivity while learning."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#suggested-practices-for-students",
+    "href": "schedule/ai_group_discussion.html#suggested-practices-for-students",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Suggested Practices for Students",
+    "text": "Suggested Practices for Students\n\nEncouraging students to reflect on AI-generated responses.\nUsing AI to generate ideas instead of completing assignments.\nAsking students to verify and revise AI outputs independently.\nTeaching students how to use AI responsibly and ethically."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#ethical-and-responsible-use-of-ai",
+    "href": "schedule/ai_group_discussion.html#ethical-and-responsible-use-of-ai",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Ethical and Responsible Use of AI",
+    "text": "Ethical and Responsible Use of AI\n\nConsidering when AI is an appropriate tool.\nUnderstanding the limitations of AI.\nVerifying AI-generated information.\nAddressing academic integrity and responsible use."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#concerns-about-ai",
+    "href": "schedule/ai_group_discussion.html#concerns-about-ai",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Concerns About AI",
+    "text": "Concerns About AI\n\nStudents may become overly dependent on AI.\nAI may reduce opportunities to develop multi-step reasoning and problem-solving skills.\nSome students may skip the productive struggle that is essential for learning.\nAI can reproduce biases found in training data.\nAI-generated information is not always correct.\nUsers need to evaluate AI outputs critically rather than accepting them automatically.\nAI misuse in education remains a concern.\nThe relationship between AI use and student learning outcomes needs continued attention.\nThe impact of AI on reading, mathematics, and critical thinking skills should be watched carefully."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#preparing-students-for-the-future",
+    "href": "schedule/ai_group_discussion.html#preparing-students-for-the-future",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Preparing Students for the Future",
+    "text": "Preparing Students for the Future\n\nDevelop curiosity as a way to prepare for the impact of AI.\nLearn effective prompting techniques.\nUnderstand both the strengths and limitations of AI.\nTransform awareness of AI into meaningful classroom applications.\nUse AI as a partner for learning instead of a replacement for thinking."
+  },
+  {
+    "objectID": "schedule/ai_group_discussion.html#closing-reflection",
+    "href": "schedule/ai_group_discussion.html#closing-reflection",
+    "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
+    "section": "Closing Reflection",
+    "text": "Closing Reflection\nThe group concluded that AI may represent a technological shift similar to the introduction of calculators and graphing calculators in mathematics education. Educational policies and classroom practices are still adapting to this rapidly changing technology. The discussion ended with a shared belief that curiosity remains the driving force behind meaningful learning."
   }
 ]

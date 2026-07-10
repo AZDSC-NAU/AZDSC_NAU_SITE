@@ -1,0 +1,63 @@
+---
+title: "Group Discussion: AI in Teaching, Learning, and Everyday Practice"
+---
+
+During the group discussion, K-16 teachers shared experiences, concerns, and ideas about using AI in teaching, learning, and everyday work. The following itemized summary captures the key points from the discussion.
+
+## AI as a Tool for Teaching
+
+- Developing lesson plans aligned with district and curriculum standards.
+- Creating classroom activities, worksheets, quizzes, and test questions.
+- Designing mathematical problems for different grade levels.
+- Preparing materials for large classroom projects.
+- Drafting emails and other routine communications.
+- Generating answer keys and checking solutions.
+- Brainstorming ideas for classroom activities.
+- Supporting data science and interdisciplinary projects.
+- Finding and organizing instructional resources.
+
+## AI as a Learning Tool for Students
+
+- Obtaining explanations of difficult concepts.
+- Summarizing information.
+- Receiving study support outside the classroom.
+- Brainstorming ideas for assignments.
+- Improving productivity while learning.
+
+## Suggested Practices for Students
+
+- Encouraging students to reflect on AI-generated responses.
+- Using AI to generate ideas instead of completing assignments.
+- Asking students to verify and revise AI outputs independently.
+- Teaching students how to use AI responsibly and ethically.
+
+## Ethical and Responsible Use of AI
+
+- Considering when AI is an appropriate tool.
+- Understanding the limitations of AI.
+- Verifying AI-generated information.
+- Addressing academic integrity and responsible use.
+
+## Concerns About AI
+
+- Students may become overly dependent on AI.
+- AI may reduce opportunities to develop multi-step reasoning and problem-solving skills.
+- Some students may skip the productive struggle that is essential for learning.
+- AI can reproduce biases found in training data.
+- AI-generated information is not always correct.
+- Users need to evaluate AI outputs critically rather than accepting them automatically.
+- AI misuse in education remains a concern.
+- The relationship between AI use and student learning outcomes needs continued attention.
+- The impact of AI on reading, mathematics, and critical thinking skills should be watched carefully.
+
+## Preparing Students for the Future
+
+- Develop curiosity as a way to prepare for the impact of AI.
+- Learn effective prompting techniques.
+- Understand both the strengths and limitations of AI.
+- Transform awareness of AI into meaningful classroom applications.
+- Use AI as a partner for learning instead of a replacement for thinking.
+
+## Closing Reflection
+
+The group concluded that AI may represent a technological shift similar to the introduction of calculators and graphing calculators in mathematics education. Educational policies and classroom practices are still adapting to this rapidly changing technology. The discussion ended with a shared belief that curiosity remains the driving force behind meaningful learning.
