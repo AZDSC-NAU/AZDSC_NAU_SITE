@@ -1,0 +1,12 @@
+---
+title: "Classroom Data Science Project Ideas"
+---
+
+| Example | Course | Project Focus | Data | Visualization Methods | Models |
+|---|---|---|---|---|---|
+| **1** | AP Environmental Science | Forecast water availability downstream of Lake Powell | Daily water inflow and outflow data | Histograms and scatterplots | Regression |
+| **2** | AP Statistics | Classify or predict student performance | UCI Student Performance dataset | Histograms, scatterplots, and bar charts | Random forest and deep neural network |
+| **3** | Calculus I or Mathematics for Preservice Elementary Teachers | Explore or predict community risk using demographic and social factors | National Risk Index and related social-factor data | Histograms and scatterplots | Regression; possible random forest |
+| **4** | High School Statistics | Analyze differences in educational performance across regions | Department of Education data with grades and regional categories | Scatterplots grouped by region | Regression with numerical and categorical variables |
+| **5** | Introductory Statistics or College Mathematics | Analyze community health trends and predict health outcomes | Weekly Arizona public-health data | Time-series plots and ROC curves | Linear or logistic regression |
+| **6** | AP Statistics or Computational Statistics | Complete a student-designed investigation using the full data science cycle | Student-selected public dataset, such as one from Kaggle | Scatterplots and other question-specific visualizations | Linear regression, logistic regression, and other machine-learning models |
