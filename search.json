@@ -95,105 +95,7 @@
     "href": "schedule/schedule_2026_advanced.html#day-3-fitting-models-to-data-uncertainty-and-classroom-adaptation",
     "title": "Advanced Pathway Daily Schedule: Summer 2026",
     "section": "Day 3: Fitting Models to Data, Uncertainty, and Classroom Adaptation",
-    "text": "Day 3: Fitting Models to Data, Uncertainty, and Classroom Adaptation\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:30\nDay 2 Session 2 exercises: finish multi-dimensional systems and epidemic model exercises. Notebook / Solutions. (Ely)\n\n\n8:30-9:30\nDay 1 Session 4 exercises: regression and deep learning package practice. Exercise. (Jaechoul)\n\n\n9:30-10:15\nClass reflection. (Ye)\n\n\n10:15-10:30\nBreak\n\n\n10:30-11:15\nReal data workflow: Arizona influenza hospitalization data, rolling averages, likelihood intuition, random walks, and connections to parameter fitting. Notebook / Solutions. (Ye)\n\n\n11:15-12:00\nModel checking and uncertainty: residual plots, best-parameter tables, simple MCMC sampler, trace plots, and posterior visualization. Notebook / Solutions. (Avery)\n\n\n12:00-1:00\nLunch\n\n\n1:00-3:00\nDataJam and classroom connections: participants adapt one dataset/model into a lesson, including a student question, graph, and interpretation prompt.\n\n\n3:00-4:00\nFinal research gathering and Community of Practice info. (Main room with Intro pathway)"
-  },
-  {
-    "objectID": "project_1/index.html",
-    "href": "project_1/index.html",
-    "title": "Advanced Pathway Materials",
-    "section": "",
-    "text": "Summer 2026 advanced pathway participants will use epidemic models as a context for learning how deterministic simulation, optimization, stochastic models, and Bayesian inference fit together."
-  },
-  {
-    "objectID": "project_1/index.html#daily-schedule",
-    "href": "project_1/index.html#daily-schedule",
-    "title": "Advanced Pathway Materials",
-    "section": "Daily Schedule",
-    "text": "Daily Schedule\nThe daily schedule is the main entry point for workshop materials. Participant notebooks and solution notebooks are linked from each session.\nOpen the daily schedule"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Arizona Data Science Corps",
-    "section": "",
-    "text": "Professional learning, classroom-ready resources, and applied data science projects for Arizona educators.\nExplore 2026 pathways Daily schedule\nArizona Data Science Corps (AZDSC) addresses Arizona’s need for more teachers prepared to bring data science education into 6th–12th grade classrooms. Through statewide professional learning, AZDSC will support 180 teachers across all 15 Arizona counties, reaching approximately 18,000 students.\nThe project also supports the development of Arizona K–12 Data Science Education Standards and offers pathways for teachers, students, and researchers to engage in data science learning, career exploration, and education research."
-  },
-  {
-    "objectID": "index.html#arizona-data-science-corps",
-    "href": "index.html#arizona-data-science-corps",
-    "title": "Arizona Data Science Corps",
-    "section": "",
-    "text": "Professional learning, classroom-ready resources, and applied data science projects for Arizona educators.\nExplore 2026 pathways Daily schedule"
-  },
-  {
-    "objectID": "index.html#pathways",
-    "href": "index.html#pathways",
-    "title": "Arizona Data Science Corps",
-    "section": "2026 Workshop Hub",
-    "text": "2026 Workshop Hub\nThis site is the public home for schedules, pathway links, workshop notebooks, and examples of data science applications connected to NAU faculty work.\n\n\nIntroductory Pathway\nFoundational data science routines, classroom activities, and program information.\nProgram document\n\n\nIntermediate Pathway\nFor educators ready to extend data science activities into richer modeling and analysis.\nProgram document\n\n\nAdvanced Pathway\nProject-based modeling experiences. Summer 2026 focuses on epidemic modeling and inference.\nProgram document\n2026 workshop schedule"
-  },
-  {
-    "objectID": "index.html#advanced-pathway-daily-schedule",
-    "href": "index.html#advanced-pathway-daily-schedule",
-    "title": "Arizona Data Science Corps",
-    "section": "Advanced Pathway Daily Schedule",
-    "text": "Advanced Pathway Daily Schedule\nThe Summer 2026 advanced pathway focuses on epidemic modeling, parameter fitting, optimization, and MCMC. Participant notebooks and solution notebooks are linked directly from the daily schedule.\n\n\nEpidemic Modeling and Inference\nSimulate SIR models, explore Markov chains, and use MCMC to infer parameters in epidemic models.\nOpen daily schedule"
-  },
-  {
-    "objectID": "index.html#faculty-data-science-applications",
-    "href": "index.html#faculty-data-science-applications",
-    "title": "Arizona Data Science Corps",
-    "section": "Faculty Data Science Applications",
-    "text": "Faculty Data Science Applications\nThis space will showcase short, classroom-friendly data science applications from university faculty. Each example can include a short description, a dataset or notebook link, and suggestions for adapting the activity for middle or high school classrooms.\nView showcase template"
-  },
-  {
-    "objectID": "index.html#support",
-    "href": "index.html#support",
-    "title": "Arizona Data Science Corps",
-    "section": "Support",
-    "text": "Support\nThis project is funded by NSF 2436761, which supports data science education and training to build a strong national data science infrastructure and workforce. Additionally, This project is co-funded by the Innovative Technology Experiences for Students and Teachers (ITEST) program, which supports projects that build understandings of practices, program elements, contexts and processes contributing to increasing students’ knowledge and interest in science, technology, engineering, and mathematics (STEM) and information and communication technology (ICT) careers."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "faculty_applications.html",
-    "href": "faculty_applications.html",
-    "title": "Faculty Data Science Applications",
-    "section": "",
-    "text": "This page is a home for short data science applications contributed by university faculty. Each application can be written as a compact case study with a dataset, notebook, classroom question, and suggested extension."
-  },
-  {
-    "objectID": "faculty_applications.html#showcase-template",
-    "href": "faculty_applications.html#showcase-template",
-    "title": "Faculty Data Science Applications",
-    "section": "Showcase Template",
-    "text": "Showcase Template\n\nApplication Title\nFaculty area: Discipline or department\nData source: Link to dataset or public data description\nClassroom question: A short question students can investigate\nMaterials: Notebook, worksheet, slide deck, or activity guide\nAdaptation notes: Ideas for introductory, intermediate, and advanced learners"
-  },
-  {
-    "objectID": "faculty_applications.html#coming-examples",
-    "href": "faculty_applications.html#coming-examples",
-    "title": "Faculty Data Science Applications",
-    "section": "Coming Examples",
-    "text": "Coming Examples\n\n\nEnvironmental Data\nPlaceholder for a faculty example using environmental or climate data.\n\n\nPublic Health Data\nPlaceholder for a faculty example using health, epidemiology, or community data.\n\n\nEducation Data\nPlaceholder for a faculty example using classroom, assessment, or learning data."
-  },
-  {
-    "objectID": "notebooks/index.html",
-    "href": "notebooks/index.html",
-    "title": "Notebook Library",
-    "section": "",
-    "text": "The daily schedule is the primary entry point for the Summer 2026 advanced pathway notebooks.\nOpen the daily schedule"
-  },
-  {
-    "objectID": "notebooks/index.html#summer-2026-epidemic-modeling",
-    "href": "notebooks/index.html#summer-2026-epidemic-modeling",
-    "title": "Notebook Library",
-    "section": "Summer 2026: Epidemic Modeling",
-    "text": "Summer 2026: Epidemic Modeling\n\n\n\nSession\nParticipant notebook\nSolution notebook\n\n\n\n\nDay 2 Session 1: Dynamical Systems\nNotebook\nSolutions\n\n\nDay 2 Session 2: SIR Models\nNotebook\nSolutions\n\n\nDay 2 Session 3: Grid Search\nNotebook\nSolutions\n\n\nDay 2 Session 4: Optimization\nNotebook\nSolutions\n\n\nDay 3 Session 1: Likelihood and Random Walk\nNotebook\nSolutions\n\n\nDay 3 Session 2: MCMC with Real Data\nNotebook\nSolutions"
+    "text": "Day 3: Fitting Models to Data, Uncertainty, and Classroom Adaptation\n\n\n\nTime\nActivity\n\n\n\n\n8:00-8:30\nDay 2 Session 2 exercises: finish multi-dimensional systems and epidemic model exercises. Notebook / Solutions. (Ely)\n\n\n8:30-9:30\nDay 1 Session 4 exercises: regression and deep learning package practice. Exercise. (Jaechoul)\n\n\n9:30-10:15\nClass reflection and classroom data science project ideas. (Ye)\n\n\n10:15-10:30\nBreak\n\n\n10:30-11:15\nReal data workflow: Arizona influenza hospitalization data, rolling averages, likelihood intuition, random walks, and connections to parameter fitting. Notebook / Solutions. (Ye)\n\n\n11:15-12:00\nModel checking and uncertainty: residual plots, best-parameter tables, simple MCMC sampler, trace plots, and posterior visualization. Notebook / Solutions. (Avery)\n\n\n12:00-1:00\nLunch\n\n\n1:00-3:00\nDataJam introduction (Judy Cameron) and classroom connections: participants adapt one dataset/model into a lesson, including a student question, graph, and interpretation prompt.\n\n\n3:00-4:00\nFinal research gathering and Community of Practice info. (Main room with Intro pathway)"
   },
   {
     "objectID": "schedule/ai_group_discussion.html",
@@ -250,6 +152,111 @@
     "title": "Group Discussion: AI in Teaching, Learning, and Everyday Practice",
     "section": "Closing Reflection",
     "text": "Closing Reflection\nThe group concluded that AI may represent a technological shift similar to the introduction of calculators and graphing calculators in mathematics education. Educational policies and classroom practices are still adapting to this rapidly changing technology. The discussion ended with a shared belief that curiosity remains the driving force behind meaningful learning."
+  },
+  {
+    "objectID": "notebooks/index.html",
+    "href": "notebooks/index.html",
+    "title": "Notebook Library",
+    "section": "",
+    "text": "The daily schedule is the primary entry point for the Summer 2026 advanced pathway notebooks.\nOpen the daily schedule"
+  },
+  {
+    "objectID": "notebooks/index.html#summer-2026-epidemic-modeling",
+    "href": "notebooks/index.html#summer-2026-epidemic-modeling",
+    "title": "Notebook Library",
+    "section": "Summer 2026: Epidemic Modeling",
+    "text": "Summer 2026: Epidemic Modeling\n\n\n\nSession\nParticipant notebook\nSolution notebook\n\n\n\n\nDay 2 Session 1: Dynamical Systems\nNotebook\nSolutions\n\n\nDay 2 Session 2: SIR Models\nNotebook\nSolutions\n\n\nDay 2 Session 3: Grid Search\nNotebook\nSolutions\n\n\nDay 2 Session 4: Optimization\nNotebook\nSolutions\n\n\nDay 3 Session 1: Likelihood and Random Walk\nNotebook\nSolutions\n\n\nDay 3 Session 2: MCMC with Real Data\nNotebook\nSolutions"
+  },
+  {
+    "objectID": "faculty_applications.html",
+    "href": "faculty_applications.html",
+    "title": "Faculty Data Science Applications",
+    "section": "",
+    "text": "This page is a home for short data science applications contributed by university faculty. Each application can be written as a compact case study with a dataset, notebook, classroom question, and suggested extension."
+  },
+  {
+    "objectID": "faculty_applications.html#showcase-template",
+    "href": "faculty_applications.html#showcase-template",
+    "title": "Faculty Data Science Applications",
+    "section": "Showcase Template",
+    "text": "Showcase Template\n\nApplication Title\nFaculty area: Discipline or department\nData source: Link to dataset or public data description\nClassroom question: A short question students can investigate\nMaterials: Notebook, worksheet, slide deck, or activity guide\nAdaptation notes: Ideas for introductory, intermediate, and advanced learners"
+  },
+  {
+    "objectID": "faculty_applications.html#coming-examples",
+    "href": "faculty_applications.html#coming-examples",
+    "title": "Faculty Data Science Applications",
+    "section": "Coming Examples",
+    "text": "Coming Examples\n\n\nEnvironmental Data\nPlaceholder for a faculty example using environmental or climate data.\n\n\nPublic Health Data\nPlaceholder for a faculty example using health, epidemiology, or community data.\n\n\nEducation Data\nPlaceholder for a faculty example using classroom, assessment, or learning data."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Arizona Data Science Corps",
+    "section": "",
+    "text": "Professional learning, classroom-ready resources, and applied data science projects for Arizona educators.\nExplore 2026 pathways Daily schedule\nArizona Data Science Corps (AZDSC) addresses Arizona’s need for more teachers prepared to bring data science education into 6th–12th grade classrooms. Through statewide professional learning, AZDSC will support 180 teachers across all 15 Arizona counties, reaching approximately 18,000 students.\nThe project also supports the development of Arizona K–12 Data Science Education Standards and offers pathways for teachers, students, and researchers to engage in data science learning, career exploration, and education research."
+  },
+  {
+    "objectID": "index.html#arizona-data-science-corps",
+    "href": "index.html#arizona-data-science-corps",
+    "title": "Arizona Data Science Corps",
+    "section": "",
+    "text": "Professional learning, classroom-ready resources, and applied data science projects for Arizona educators.\nExplore 2026 pathways Daily schedule"
+  },
+  {
+    "objectID": "index.html#pathways",
+    "href": "index.html#pathways",
+    "title": "Arizona Data Science Corps",
+    "section": "2026 Workshop Hub",
+    "text": "2026 Workshop Hub\nThis site is the public home for schedules, pathway links, workshop notebooks, and examples of data science applications connected to NAU faculty work.\n\n\nIntroductory Pathway\nFoundational data science routines, classroom activities, and program information.\nProgram document\n\n\nIntermediate Pathway\nFor educators ready to extend data science activities into richer modeling and analysis.\nProgram document\n\n\nAdvanced Pathway\nProject-based modeling experiences. Summer 2026 focuses on epidemic modeling and inference.\nProgram document\n2026 workshop schedule"
+  },
+  {
+    "objectID": "index.html#advanced-pathway-daily-schedule",
+    "href": "index.html#advanced-pathway-daily-schedule",
+    "title": "Arizona Data Science Corps",
+    "section": "Advanced Pathway Daily Schedule",
+    "text": "Advanced Pathway Daily Schedule\nThe Summer 2026 advanced pathway focuses on epidemic modeling, parameter fitting, optimization, and MCMC. Participant notebooks and solution notebooks are linked directly from the daily schedule.\n\n\nEpidemic Modeling and Inference\nSimulate SIR models, explore Markov chains, and use MCMC to infer parameters in epidemic models.\nOpen daily schedule"
+  },
+  {
+    "objectID": "index.html#faculty-data-science-applications",
+    "href": "index.html#faculty-data-science-applications",
+    "title": "Arizona Data Science Corps",
+    "section": "Faculty Data Science Applications",
+    "text": "Faculty Data Science Applications\nThis space will showcase short, classroom-friendly data science applications from university faculty. Each example can include a short description, a dataset or notebook link, and suggestions for adapting the activity for middle or high school classrooms.\nView showcase template"
+  },
+  {
+    "objectID": "index.html#support",
+    "href": "index.html#support",
+    "title": "Arizona Data Science Corps",
+    "section": "Support",
+    "text": "Support\nThis project is funded by NSF 2436761, which supports data science education and training to build a strong national data science infrastructure and workforce. Additionally, This project is co-funded by the Innovative Technology Experiences for Students and Teachers (ITEST) program, which supports projects that build understandings of practices, program elements, contexts and processes contributing to increasing students’ knowledge and interest in science, technology, engineering, and mathematics (STEM) and information and communication technology (ICT) careers."
+  },
+  {
+    "objectID": "project_1/index.html",
+    "href": "project_1/index.html",
+    "title": "Advanced Pathway Materials",
+    "section": "",
+    "text": "Summer 2026 advanced pathway participants will use epidemic models as a context for learning how deterministic simulation, optimization, stochastic models, and Bayesian inference fit together."
+  },
+  {
+    "objectID": "project_1/index.html#daily-schedule",
+    "href": "project_1/index.html#daily-schedule",
+    "title": "Advanced Pathway Materials",
+    "section": "Daily Schedule",
+    "text": "Daily Schedule\nThe daily schedule is the main entry point for workshop materials. Participant notebooks and solution notebooks are linked from each session.\nOpen the daily schedule"
+  },
+  {
+    "objectID": "schedule/classroom_project_ideas.html",
+    "href": "schedule/classroom_project_ideas.html",
+    "title": "Classroom Data Science Project Ideas",
+    "section": "",
+    "text": "Example\nCourse\nProject Focus\nData\nVisualization Methods\nModels\n\n\n\n\n1\nAP Environmental Science\nForecast water availability downstream of Lake Powell\nDaily water inflow and outflow data\nHistograms and scatterplots\nRegression\n\n\n2\nAP Statistics\nClassify or predict student performance\nUCI Student Performance dataset\nHistograms, scatterplots, and bar charts\nRandom forest and deep neural network\n\n\n3\nCalculus I or Mathematics for Preservice Elementary Teachers\nExplore or predict community risk using demographic and social factors\nNational Risk Index and related social-factor data\nHistograms and scatterplots\nRegression; possible random forest\n\n\n4\nHigh School Statistics\nAnalyze differences in educational performance across regions\nDepartment of Education data with grades and regional categories\nScatterplots grouped by region\nRegression with numerical and categorical variables\n\n\n5\nIntroductory Statistics or College Mathematics\nAnalyze community health trends and predict health outcomes\nWeekly Arizona public-health data\nTime-series plots and ROC curves\nLinear or logistic regression\n\n\n6\nAP Statistics or Computational Statistics\nComplete a student-designed investigation using the full data science cycle\nStudent-selected public dataset, such as one from Kaggle\nScatterplots and other question-specific visualizations\nLinear regression, logistic regression, and other machine-learning models"
   },
   {
     "objectID": "schedule/schedule_2026_int.html",
